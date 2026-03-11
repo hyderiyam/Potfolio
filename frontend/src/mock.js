@@ -111,7 +111,7 @@ export const projects = [
     solution: "Developed a cross-platform mobile application utilizing Flutter and Node.js to stream live location updates.",
     tech: ["Flutter", "Riverpod", "Node.js", "MongoDB"],
     outcome: "Significantly improved transportation tracking and efficiency for all faculty and students.",
-    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjV8MHwxfHNlYXJjaHwxfHxidXN8ZW58MHx8fHwxNzY5MTgyODg3fDA&ixlib=rb-4.1.0&q=85"
+    image: "/projects/shuttle_ui.png"
   },
   {
     id: 2,
@@ -121,7 +121,7 @@ export const projects = [
     solution: "Created an all-in-one fitness app offering tailored workout routines and nutrition plans powered by Laravel backend.",
     tech: ["Flutter", "Riverpod", "Laravel", "MySQL"],
     outcome: "Provided an easily accessible health and wellness ecosystem for busy professionals.",
-    image: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxmaXRuZXNzJTIwYXBwfGVufDB8fHx8MTc2OTE4Mjg5NXww&ixlib=rb-4.1.0&q=85"
+    image: "/projects/fitsoul_ui.png"
   },
   {
     id: 3,
@@ -131,7 +131,7 @@ export const projects = [
     solution: "Built a robust web and mobile solution using Flutter and Node.js to streamline inventory logging and sales reporting.",
     tech: ["Flutter", "Node.js", "Express", "MongoDB"],
     outcome: "Improved data accuracy and operational workflows for retail partners.",
-    image: "https://images.unsplash.com/photo-1553413077-190dd305871c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHwzfHxpbnZlbnRvcnl8ZW58MHx8fHwxNzY5MTgyOTAyfDA&ixlib=rb-4.1.0&q=85"
+    image: "/projects/inventory_ui.png"
   },
   {
     id: 4,
@@ -141,7 +141,7 @@ export const projects = [
     solution: "Integrated an AI chatbot trained on product catalogs into a Flutter mobile app backed by Node.js.",
     tech: ["Flutter", "Node.js", "OpenAI API", "Machine Learning"],
     outcome: "Automated 70% of customer inquiries and boosted user engagement.",
-    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjV8MHwxfHNlYXJjaHwxfHxib3R8ZW58MHx8fHwxNzY5MTgyOTA2fDA&ixlib=rb-4.1.0&q=85"
+    image: "/projects/chatbot_ui.png"
   },
   {
     id: 5,
@@ -151,7 +151,7 @@ export const projects = [
     solution: "Built an AI-powered portal to automatically parse, analyze, and rank resumes using natural language processing.",
     tech: ["Laravel", "Node.js", "Flutter", "AI APIs"],
     outcome: "Reduced screening time by 85%, improved candidate quality, and helped clients hire faster.",
-    image: "https://images.unsplash.com/photo-1763718528755-4bca23f82ac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjV8MHwxfHNlYXJjaHwxfHxBSSUyMHJlY3J1aXRtZW50fGVufDB8fHx8MTc2OTE4Mjg4N3ww&ixlib=rb-4.1.0&q=85"
+    image: "/projects/resume_ui.png"
   },
   {
     id: 6,
@@ -161,7 +161,7 @@ export const projects = [
     solution: "Developed an enterprise mobile and web system prioritizing route optimization powered by Laravel and Flutter.",
     tech: ["Flutter", "Riverpod", "Laravel", "PostgreSQL"],
     outcome: "30% reduction in delivery time and significant improvement in routing efficiency.",
-    image: "https://images.unsplash.com/photo-1726776230751-183496c51f00?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxsb2dpc3RpY3MlMjBtYW5hZ2VtZW50fGVufDB8fHx8MTc2OTE4MjkxNnww&ixlib=rb-4.1.0&q=85"
+    image: "/projects/gas_ui.png"
   },
   {
     id: 7,
@@ -171,7 +171,7 @@ export const projects = [
     solution: "Developed an ML model wrapped in a Node.js API, consumed by a Flutter dashboard to predict potential health risks.",
     tech: ["Flutter", "Riverpod", "Node.js", "Machine Learning"],
     outcome: "Provided doctors with an accurate pre-screening tool, improving early diagnosis rates.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173ff9e5e3c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjV8MHwxfHNlYXJjaHwxfHxoZWFsdGhjYXJlfGVufDB8fHx8MTc2OTE4Mjk1NXww&ixlib=rb-4.1.0&q=85"
+    image: "/projects/healthcare_ui.png"
   }
 ];
 
@@ -254,9 +254,9 @@ export const process = [
 
 export const contact = {
   email: "abbashyder9908@gmail.com",
-  phone: "0336-4671098",
+  phone: "+92 328 7172397",
   social: [
-    { platform: "LinkedIn", url: "https://linkedin.com/in/syedhyderabbas", icon: "Linkedin" },
-    { platform: "GitHub", url: "https://github.com/syedhyderabbas", icon: "Github" }
+    { platform: "LinkedIn", url: "https://www.linkedin.com/in/syed-hyder-abbas-73b851230", icon: "Linkedin" },
+    { platform: "GitHub", url: "https://github.com/hyderiyam", icon: "Github" }
   ]
 };
