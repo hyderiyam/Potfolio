@@ -34,11 +34,11 @@ const Hero = () => {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black text-white mb-6 tracking-tighter leading-[1.1]">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black text-white mb-6 tracking-tighter leading-[1.1]">
             A Developer who judges a book by its
             <br className="hidden sm:block" />
-            <span className="relative inline-block mt-2 sm:mt-4 ml-0 sm:ml-4">
-              <span className="relative z-10 px-6 py-1 text-white bg-primary rounded-full border-2 border-primary/50 shadow-[0_0_30px_rgba(168,85,247,0.4)]">code</span>
+            <span className="relative inline-block mt-2 sm:mt-4">
+              <span className="relative z-10 px-4 sm:px-6 py-1 text-white bg-primary rounded-full border-2 border-primary/50 shadow-[0_0_30px_rgba(168,85,247,0.4)]">code</span>
             </span>...
           </h1>
 

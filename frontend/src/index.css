@@ -54,6 +54,13 @@ code {
 
         --radius: 0.75rem;
     }
+
+    /* Global Responsive Adjustments */
+    @media (max-width: 640px) {
+        :root {
+            font-size: 14px;
+        }
+    }
 }
 
 @layer base {

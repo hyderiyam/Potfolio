@@ -8,11 +8,11 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    // Removed forced dark mode to allow clean light theme
-    document.documentElement.classList.remove('dark');
+    // Ensure dark mode is active for consistency with design system
+    document.documentElement.classList.add('dark');
 
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);

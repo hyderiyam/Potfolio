@@ -110,9 +110,9 @@ const Projects = () => {
                 </div>
 
                 {/* Content Panel */}
-                <div className="flex-1 flex flex-col p-6 sm:p-8 relative z-20 -mt-16 sm:-mt-20 mx-4 sm:mx-6 mb-4 sm:mb-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl">
-                  <CardHeader className="p-0 mb-6">
-                    <div className="text-primary text-sm font-bold mb-2 tracking-widest uppercase">Featured Project</div>
+                <div className="flex-1 flex flex-col p-5 sm:p-8 relative z-20 -mt-8 sm:-mt-20 mx-3 sm:mx-6 mb-4 sm:mb-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl">
+                  <CardHeader className="p-0 mb-6 sm:mb-8">
+                    <div className="text-primary text-[10px] sm:text-sm font-bold mb-2 tracking-widest uppercase">Featured Project</div>
                     <CardTitle className="text-2xl sm:text-3xl font-bold text-white group-hover:text-primary transition-colors duration-300">
                       {project.title}
                     </CardTitle>
