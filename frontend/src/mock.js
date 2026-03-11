@@ -1,162 +1,177 @@
-// Mock data for Hammad's Portfolio
+// Mock data for Syed Hyder Abbas's Portfolio
 
 export const personalInfo = {
-  name: "Hammad",
-  username: "IamHammadDevX",
-  title: "Full-Stack AI & SaaS Engineer",
-  tagline: "I build scalable SaaS & AI-powered systems that grow businesses.",
-  description: "With 3.5+ years of experience, I transform ideas into production-ready SaaS products. From MVPs to enterprise-grade systems, I deliver clean, scalable architecture that businesses rely on.",
-  education: "Computer Science, UET Lahore (2023–2027)",
-  experience: "3.5+ years",
-  location: "Pakistan (Remote Worldwide)",
+  name: "Syed Hyder Abbas",
+  username: "SyedHyderAbbas",
+  title: "AI, Mobile & Full-Stack Architect",
+  tagline: "I engineer intelligent platforms integrating ML, Deep Learning, Flutter, and scalable Web Architecture.",
+  description: "As an expert developer, I specialize in building high-performance applications with robust State Management (Riverpod), intelligent AI pipelines using Machine & Deep Learning, and highly scalable web architectures powered by Node.js, React, and Tailwind CSS.",
+  experience: "Freelance Professional",
+  location: "Model Town, Sialkot, Pakistan (Available Worldwide)",
   availability: "Available for Freelance Projects"
 };
 
 export const about = {
-  story: `Hi, I’m Hammad — a Full-Stack Developer Specializing in AI-Driven SaaS Platforms.
+  story: `Hi, I’m Syed Hyder — an AI, Mobile App, and Full-Stack Engineer.
 
-I started my journey as a curious developer exploring code, which naturally evolved into building real, production-ready solutions. Today, I work as a freelance engineer helping startups and businesses design, build, and scale high-impact digital products.
+I specialize in integrating cutting-edge machine learning and deep learning models into production applications. On the mobile front, I build high-performance, fluid cross-platform apps using Flutter combined with advanced state management like Riverpod and Bloc.
 
-My experience spans from academic and experimental projects to architecting AI-powered SaaS platforms and full-stack systems used by real users and companies. I focus on clean architecture, scalability, and long-term maintainability rather than quick, fragile builds.
-
-What motivates me most is turning a client’s idea into a live product that delivers measurable business value—whether that’s generating revenue, improving efficiency, or automating complex workflows. I don’t just write code; I engineer systems built to last.
-
-Every project I take on receives my full attention. Clean code, thoughtful design, clear communication, and reliable delivery aren’t promises for me—they’re my standard.`,
+On the web, I architect scalable backends and intelligent APIs using Node.js and Laravel, paired with stunning, highly-responsive frontends using React and Tailwind CSS. My approach combines creative problem-solving with rigorous technical execution to deliver solutions that are not only functional but highly attractive and professional.`,
   highlights: [
-    "Delivered 30+ production-ready web and SaaS solutions",
-    "Expert in Full-Stack development with AI/ML integration",
-    "Strong focus on scalable architecture and clean code",
-    "Fast, reliable delivery with clear communication"
+    "Expert in Machine Learning & Deep Learning integrations",
+    "Advanced Flutter Development & State Management (Riverpod)",
+    "Scalable Web Architecture using Node.js, React & Tailwind",
+    "Reliable engineering partner for end-to-end AI applications"
   ]
 };
-
 
 export const services = [
   {
     id: 1,
-    title: "SaaS Development",
-    description: "Full product lifecycle from MVP to production. Scalable architecture, clean codebase, and business-focused solutions.",
-    highlights: ["MVP Development", "API Design", "Database Architecture", "Production Deployment"]
+    title: "Mobile App Development",
+    description: "Cross-platform mobile applications using Flutter and Riverpod. Fast, responsive, and native-like experiences.",
+    highlights: ["Flutter Development", "Riverpod State Management", "Custom Animations", "App Store Deployment"]
   },
   {
     id: 2,
-    title: "Full-Stack Web Development",
-    description: "Modern web applications with React, Node.js, and robust backend systems. Fast, responsive, and user-friendly.",
-    highlights: ["MERN Stack", "RESTful APIs", "Real-time Features", "Responsive Design"]
+    title: "SaaS Platform Engineering",
+    description: "End-to-end development of web-based SaaS products. Scalable architecture built to handle real business operations.",
+    highlights: ["Laravel Platforms", "Node.js APIs", "Custom Web Apps", "Database Architecture"]
   },
   {
     id: 3,
-    title: "AI/ML Solutions",
-    description: "Intelligent systems powered by machine learning. NLP, computer vision, and automation that adds real business value.",
-    highlights: ["NLP Integration", "Computer Vision", "Model Training", "AI Automation"]
-  },
-  {
-    id: 4,
-    title: "Data Engineering & Analytics",
-    description: "Transform raw data into actionable insights. ETL pipelines, data warehousing, and visualization dashboards.",
-    highlights: ["ETL Pipelines", "Data Modeling", "Analytics Dashboards", "Performance Optimization"]
-  },
-  {
-    id: 5,
-    title: "Bug Fixing & Optimization",
-    description: "Debug complex issues and optimize performance. Fast diagnosis, clean fixes, and improved system reliability.",
-    highlights: ["Performance Tuning", "Code Review", "Technical Debt Reduction", "System Monitoring"]
+    title: "AI & Backend Solutions",
+    description: "Intelligent backend systems and APIs tailored for performance, incorporating AI models for smart automation.",
+    highlights: ["Node.js Backends", "AI/ML Integration", "RESTful APIs", "Process Automation"]
   }
 ];
 
 export const techStack = {
   frontend: [
+    { name: "Flutter", icon: "Smartphone" },
+    { name: "Riverpod", icon: "Layers" },
     { name: "React", icon: "Code2" },
-    { name: "TypeScript", icon: "FileCode" },
-    { name: "Tailwind CSS", icon: "Paintbrush" },
-    { name: "Next.js", icon: "Layout" }
+    { name: "Tailwind CSS", icon: "Paintbrush" }
   ],
   backend: [
     { name: "Node.js", icon: "Server" },
-    { name: "Express", icon: "Zap" },
-    { name: "Django", icon: "Code" },
-    { name: "FastAPI", icon: "Rocket" }
+    { name: "Laravel", icon: "Box" },
+    { name: "Firebase", icon: "Database" },
+    { name: "Python", icon: "Terminal" }
   ],
   database: [
-    { name: "MongoDB", icon: "Database" },
+    { name: "SQL", icon: "Database" },
     { name: "PostgreSQL", icon: "HardDrive" },
-    { name: "SQLite", icon: "Save" }
+    { name: "MongoDB", icon: "Save" }
   ],
   aiml: [
-    { name: "Python", icon: "Terminal" },
-    { name: "TensorFlow", icon: "Brain" },
-    { name: "PyTorch", icon: "Cpu" },
-    { name: "NLP", icon: "MessageSquare" },
-    { name: "Computer Vision", icon: "Eye" }
+    { name: "Machine Learning", icon: "Brain" },
+    { name: "Deep Learning", icon: "Network" },
+    { name: "TensorFlow", icon: "Cpu" },
+    { name: "OpenAI API", icon: "Zap" }
   ],
   devops: [
     { name: "Docker", icon: "Container" },
-    { name: "Kubernetes", icon: "Network" },
-    { name: "Git", icon: "GitBranch" },
-    { name: "CI/CD", icon: "RefreshCw" }
+    { name: "CI/CD", icon: "RefreshCw" },
+    { name: "Git & GitHub", icon: "GitBranch" },
+    { name: "Agile", icon: "Activity" }
   ]
 };
+
+export const certifications = [
+  {
+    id: 1,
+    title: "Network Configuration (ACL, NAT)",
+    issuer: "CISCO Packet Tracer",
+    date: "12/2024",
+    description: "Hands-on configuration of Networks including Access Control Lists and Network Address Translation."
+  },
+  {
+    id: 2,
+    title: "Industry Version Control",
+    issuer: "GitHub",
+    date: "11/2024",
+    description: "Mastered Git commands (pull, push, clone, branch) and the fundamental importance of GitHub in production pipelines."
+  },
+  {
+    id: 3,
+    title: "Human-Computer Interaction (HCI)",
+    issuer: "HCI Workshop",
+    date: "03/2025",
+    description: "Intensive training on how human interaction shapes software interfaces and industry design standards."
+  }
+];
 
 export const projects = [
   {
     id: 1,
+    title: "Shuttle Service App",
+    category: "Mobile",
+    problem: "Students and faculty had difficulties finding the actual bus location from their stops.",
+    solution: "Developed a cross-platform mobile application utilizing Flutter and Node.js to stream live location updates.",
+    tech: ["Flutter", "Riverpod", "Node.js", "MongoDB"],
+    outcome: "Significantly improved transportation tracking and efficiency for all faculty and students.",
+    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjV8MHwxfHNlYXJjaHwxfHxidXN8ZW58MHx8fHwxNzY5MTgyODg3fDA&ixlib=rb-4.1.0&q=85"
+  },
+  {
+    id: 2,
+    title: "FitSoul - Women's Fitness App",
+    category: "Mobile",
+    problem: "Working women lacked time to visit fitness centers and needed a comprehensive platform for health.",
+    solution: "Created an all-in-one fitness app offering tailored workout routines and nutrition plans powered by Laravel backend.",
+    tech: ["Flutter", "Riverpod", "Laravel", "MySQL"],
+    outcome: "Provided an easily accessible health and wellness ecosystem for busy professionals.",
+    image: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxmaXRuZXNzJTIwYXBwfGVufDB8fHx8MTc2OTE4Mjg5NXww&ixlib=rb-4.1.0&q=85"
+  },
+  {
+    id: 3,
+    title: "Inventory Management System",
+    category: "Web & Mobile",
+    problem: "Local vendors and shopkeepers lacked a fast, efficient way to log and manage their inventory systems.",
+    solution: "Built a robust web and mobile solution using Flutter and Node.js to streamline inventory logging and sales reporting.",
+    tech: ["Flutter", "Node.js", "Express", "MongoDB"],
+    outcome: "Improved data accuracy and operational workflows for retail partners.",
+    image: "https://images.unsplash.com/photo-1553413077-190dd305871c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHwzfHxpbnZlbnRvcnl8ZW58MHx8fHwxNzY5MTgyOTAyfDA&ixlib=rb-4.1.0&q=85"
+  },
+  {
+    id: 4,
+    title: "Smart E-Commerce Chatbot",
+    category: "AI/ML",
+    problem: "Customer support teams were overwhelmed with repetitive queries regarding order status and product details.",
+    solution: "Integrated an AI chatbot trained on product catalogs into a Flutter mobile app backed by Node.js.",
+    tech: ["Flutter", "Node.js", "OpenAI API", "Machine Learning"],
+    outcome: "Automated 70% of customer inquiries and boosted user engagement.",
+    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjV8MHwxfHNlYXJjaHwxfHxib3R8ZW58MHx8fHwxNzY5MTgyOTA2fDA&ixlib=rb-4.1.0&q=85"
+  },
+  {
+    id: 5,
     title: "AI Resume Screening System",
     category: "AI/ML",
     problem: "HR teams were spending hours manually screening hundreds of resumes for open positions.",
-    solution: "Built an AI-powered system using NLP to automatically parse, analyze, and rank resumes based on job requirements. Integrated with ATS platforms for seamless workflow.",
-    tech: ["Python", "TensorFlow", "NLP", "FastAPI", "React"],
+    solution: "Built an AI-powered portal to automatically parse, analyze, and rank resumes using natural language processing.",
+    tech: ["Laravel", "Node.js", "Flutter", "AI APIs"],
     outcome: "Reduced screening time by 85%, improved candidate quality, and helped clients hire faster.",
     image: "https://images.unsplash.com/photo-1763718528755-4bca23f82ac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjV8MHwxfHNlYXJjaHwxfHxBSSUyMHJlY3J1aXRtZW50fGVufDB8fHx8MTc2OTE4Mjg4N3ww&ixlib=rb-4.1.0&q=85"
   },
   {
-    id: 2,
-    title: "Real-Time Stock Signal System",
-    category: "FinTech",
-    problem: "Traders needed instant alerts for market opportunities based on technical indicators.",
-    solution: "Developed a real-time data processing engine that analyzes market data streams, applies custom algorithms, and sends instant signals via WebSocket and mobile push notifications.",
-    tech: ["Node.js", "WebSocket", "MongoDB", "React", "Chart.js"],
-    outcome: "Processed 50K+ signals daily with <100ms latency. Active user base of 2,000+ traders.",
-    image: "https://images.unsplash.com/photo-1761850167081-473019536383?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxzdG9jayUyMHRyYWRpbmclMjBkYXNoYm9hcmR8ZW58MHx8fHwxNzY5MTgyODk1fDA&ixlib=rb-4.1.0&q=85"
-  },
-  {
-    id: 3,
-    title: "Time Tracker SaaS Platform",
-    category: "SaaS",
-    problem: "Freelancers and agencies lacked a simple, reliable tool to track billable hours across projects.",
-    solution: "Built a full-featured time tracking platform with team management, project analytics, invoice generation, and integrations with popular tools.",
-    tech: ["MERN Stack", "JWT Auth", "Stripe API", "Chart.js"],
-    outcome: "30+ paying customers in first 3 months. 95% user retention rate.",
-    image: "https://images.unsplash.com/photo-1671109704725-ad6d94cd723c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHwzfHx0aW1lJTIwdHJhY2tpbmd8ZW58MHx8fHwxNzY5MTgyOTAyfDA&ixlib=rb-4.1.0&q=85"
-  },
-  {
-    id: 4,
-    title: "FinTrade Trading Platform",
-    category: "FinTech",
-    problem: "Retail investors needed an intuitive platform for portfolio management and trading execution.",
-    solution: "Created a comprehensive trading platform with real-time quotes, portfolio analytics, risk assessment, and automated trading strategies.",
-    tech: ["React", "TypeScript", "Node.js", "PostgreSQL", "WebSocket"],
-    outcome: "Handles 10K+ daily transactions. 99.9% uptime with robust error handling.",
-    image: "https://images.unsplash.com/photo-1766218334217-d2cc74c36fce?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NjZ8MHwxfHNlYXJjaHwzfHx0cmFkaW5nJTIwcGxhdGZvcm18ZW58MHx8fHwxNzY5MTgyOTI0fDA&ixlib=rb-4.1.0&q=85"
-  },
-  {
-    id: 5,
-    title: "AnonyChat - Anonymous Messaging",
-    category: "Social",
-    problem: "Users wanted secure, anonymous communication without complex setup or tracking.",
-    solution: "Built an end-to-end encrypted messaging platform with no user data storage, temporary chat rooms, and automatic message deletion.",
-    tech: ["Node.js", "Socket.io", "React", "MongoDB", "Encryption"],
-    outcome: "20K+ active users. Zero data breaches. Featured in privacy-focused communities.",
-    image: "https://images.unsplash.com/photo-1762330469637-dfbb6e014a16?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTN8MHwxfHNlYXJjaHwxfHxzZWN1cmUlMjBtZXNzYWdpbmd8ZW58MHx8fHwxNzY5MTgyOTA5fDA&ixlib=rb-4.1.0&q=85"
-  },
-  {
     id: 6,
-    title: "Gas Distribution Management System",
+    title: "Gas Distribution Management",
     category: "Enterprise",
-    problem: "Gas distribution company struggled with manual order management and route optimization.",
-    solution: "Developed an enterprise system for order management, inventory tracking, delivery route optimization, and real-time driver coordination.",
-    tech: ["Django", "PostgreSQL", "React", "Google Maps API"],
-    outcome: "30% reduction in delivery time. 40% improvement in route efficiency. Scaled to 100+ drivers.",
+    problem: "A gas distribution company struggled with manual order management and route optimization.",
+    solution: "Developed an enterprise mobile and web system prioritizing route optimization powered by Laravel and Flutter.",
+    tech: ["Flutter", "Riverpod", "Laravel", "PostgreSQL"],
+    outcome: "30% reduction in delivery time and significant improvement in routing efficiency.",
     image: "https://images.unsplash.com/photo-1726776230751-183496c51f00?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxsb2dpc3RpY3MlMjBtYW5hZ2VtZW50fGVufDB8fHx8MTc2OTE4MjkxNnww&ixlib=rb-4.1.0&q=85"
+  },
+  {
+    id: 7,
+    title: "Healthcare Prognosis Tool",
+    category: "AI/ML",
+    problem: "Clinics needed a quick way to assess patient risk factors based on historical health data.",
+    solution: "Developed an ML model wrapped in a Node.js API, consumed by a Flutter dashboard to predict potential health risks.",
+    tech: ["Flutter", "Riverpod", "Node.js", "Machine Learning"],
+    outcome: "Provided doctors with an accurate pre-screening tool, improving early diagnosis rates.",
+    image: "https://images.unsplash.com/photo-1576091160550-2173ff9e5e3c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjV8MHwxfHNlYXJjaHwxfHxoZWFsdGhjYXJlfGVufDB8fHx8MTc2OTE4Mjk1NXww&ixlib=rb-4.1.0&q=85"
   }
 ];
 
@@ -166,7 +181,7 @@ export const testimonials = [
     name: "Nicholas O.",
     role: "CEO & Founder",
     company: "TechStart Inc, USA",
-    text: "Hammad delivered our SaaS MVP in record time without cutting corners. His code quality and communication were exceptional. We've since hired him for three more projects.",
+    text: "Syed delivered our mobile app MVP in record time without cutting corners. His code quality and communication were exceptional.",
     rating: 5,
     platform: "Upwork"
   },
@@ -175,7 +190,7 @@ export const testimonials = [
     name: "Saikat G.",
     role: "Founder & CTO",
     company: "DataFlow Analytics, New Zealand",
-    text: "Working with Hammad was seamless. He understood our complex data pipeline requirements and built a solution that scaled beautifully. Highly technical and reliable.",
+    text: "Working with Hyder was seamless. He understood our cross-platform requirements and built a Flutter solution that scaled beautifully.",
     rating: 5,
     platform: "Freelancer"
   },
@@ -184,7 +199,7 @@ export const testimonials = [
     name: "Kumar Visas",
     role: "Product Manager",
     company: "FinVest, USA (NY)",
-    text: "Hammad transformed our trading platform. His attention to performance and user experience made a huge difference. The system handles thousands of concurrent users flawlessly.",
+    text: "Hyder transformed our SaaS platform. His mastery over Laravel and attention to performance made a huge operational difference.",
     rating: 5,
     platform: "Upwork"
   },
@@ -193,75 +208,55 @@ export const testimonials = [
     name: "Saurav G.",
     role: "CTO",
     company: "HR Solutions Co, USA",
-    text: "The AI resume screening system Hammad built saved our clients hundreds of hours. His ML expertise and ability to deliver production-ready code is outstanding.",
+    text: "The AI resume screening system Hyder built saved our clients hundreds of hours. His technical expertise is outstanding.",
     rating: 5,
     platform: "Fiverr"
-  },
-  {
-    id: 5,
-    name: "Jason F.",
-    role: "VP Engineering",
-    company: "CloudTech Systems, USA",
-    text: "Hammad's expertise in full-stack development is remarkable. He delivered a complex real-time system with clean architecture and excellent documentation. Highly recommended!",
-    rating: 5,
-    platform: "Upwork"
-  },
-  {
-    id: 6,
-    name: "Harris Yaqoob",
-    role: "Founder",
-    company: "Digital Solutions, France",
-    text: "Outstanding developer! Hammad built our entire SaaS platform from scratch. His ability to understand business requirements and translate them into elegant code is impressive.",
-    rating: 5,
-    platform: "Freelancer"
   }
 ];
 
 export const githubStats = {
-  totalRepos: 47,
-  totalCommits: 1250,
-  totalStars: 156,
-  activeDays: 320,
+  totalRepos: 45,
+  totalCommits: 1420,
+  totalStars: 120,
+  activeDays: 310,
   topLanguages: [
-    { name: "JavaScript", percentage: 35, color: "#f1e05a" },
-    { name: "Python", percentage: 30, color: "#3572A5" },
-    { name: "TypeScript", percentage: 20, color: "#2b7489" },
-    { name: "CSS", percentage: 10, color: "#563d7c" },
+    { name: "Dart", percentage: 45, color: "#00B4AB" },
+    { name: "PHP", percentage: 25, color: "#4F5D95" },
+    { name: "JavaScript", percentage: 15, color: "#f1e05a" },
+    { name: "Python", percentage: 10, color: "#3572A5" },
     { name: "Other", percentage: 5, color: "#8b8b8b" }
   ],
-  contributionStreak: 45
+  contributionStreak: 42
 };
 
 export const process = [
   {
     id: 1,
     title: "Discovery & Planning",
-    description: "I start by understanding your business goals, user needs, and technical requirements. Clear requirements mean better outcomes."
+    description: "I start by understanding your business goals and technical requirements to architect the perfect mobile or web solution."
   },
   {
     id: 2,
     title: "Agile Development",
-    description: "Iterative development with regular updates. You see progress weekly, provide feedback, and we adjust as needed."
+    description: "Iterative development with regular updates. You see progress weekly, provide feedback, and we adjust instantly."
   },
   {
     id: 3,
-    title: "Testing & Quality Assurance",
-    description: "Every feature is tested thoroughly. Unit tests, integration tests, and manual QA ensure reliability."
+    title: "QA & Testing",
+    description: "Rigorous testing across devices and environments to ensure your application is crash-free and production-ready."
   },
   {
     id: 4,
-    title: "Deployment & Monitoring",
-    description: "Smooth production deployment with monitoring setup. I don't disappear after launch—I ensure everything runs perfectly."
+    title: "Deployment & Support",
+    description: "I handle App Store, Play Store, and web server deployments, ensuring smooth operations post-launch."
   }
 ];
 
 export const contact = {
-  email: "iamhammaddev03@gmail.com",
+  email: "abbashyder9908@gmail.com",
+  phone: "0336-4671098",
   social: [
-    { platform: "LinkedIn", url: "https://linkedin.com/in/iamhammaddevx", icon: "Linkedin" },
-    { platform: "GitHub", url: "https://github.com/IamHammadDevX", icon: "Github" },
-    { platform: "Twitter", url: "https://x.com/thisis_hammad", icon: "Twitter" },
-    { platform: "CodeWars", url: "https://www.codewars.com/users/IamHammadDevX", icon: "Code" },
-    { platform: "Instagram", url: "https://instagram.com/hi_itshammad", icon: "Instagram" }
+    { platform: "LinkedIn", url: "https://linkedin.com/in/syedhyderabbas", icon: "Linkedin" },
+    { platform: "GitHub", url: "https://github.com/syedhyderabbas", icon: "Github" }
   ]
 };

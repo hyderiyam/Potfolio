@@ -7,6 +7,7 @@ import About from './components/About';
 import Services from './components/Services';
 import TechStack from './components/TechStack';
 import Projects from './components/Projects';
+import Certifications from './components/Certifications';
 import Testimonials from './components/Testimonials';
 import GitHub from './components/GitHub';
 import Process from './components/Process';
@@ -21,17 +22,15 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="App bg-white dark:bg-gray-900 min-h-screen transition-colors duration-300">
+      <div className="App bg-background min-h-screen transition-colors duration-300">
         <Header />
         <main>
           <Hero />
-          <About />
           <Services />
-          <TechStack />
           <Projects />
-          <GitHub />
-          <Testimonials />
-          <Process />
+          <TechStack />
+          <Certifications />
+          <About />
           <Contact />
         </main>
         <Footer />

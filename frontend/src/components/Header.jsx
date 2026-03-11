@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
-import { useTheme } from '../context/ThemeContext';
+import { contact } from '../mock';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
+    // Removed forced dark mode to allow clean light theme
+    document.documentElement.classList.remove('dark');
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -17,11 +19,10 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { label: 'About', href: '#about' },
     { label: 'Services', href: '#services' },
     { label: 'Projects', href: '#projects' },
     { label: 'Tech Stack', href: '#techstack' },
-    { label: 'Contact', href: '#contact' }
+    { label: 'Certifications', href: '#certifications' }
   ];
 
   const scrollToSection = (e, href) => {
@@ -35,74 +36,49 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-sm' 
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${isScrolled
+        ? 'bg-background/50 backdrop-blur-md border-border shadow-lg py-3'
+        : 'bg-transparent border-transparent py-5'
+        }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a
             href="#hero"
             onClick={(e) => scrollToSection(e, '#hero')}
-            className="text-xl sm:text-2xl font-bold text-black dark:text-white hover:scale-105 transition-transform duration-200"
+            className="text-xl sm:text-2xl font-black text-foreground hover:opacity-80 transition-opacity tracking-tighter flex items-center gap-2"
           >
-            IamHammadDevX
+            <span className="text-primary">S.</span>Hyder
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
+          <nav className="hidden md:flex items-center space-x-2 lg:space-x-4">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
                 onClick={(e) => scrollToSection(e, item.href)}
-                className="text-sm text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:-translate-y-0.5 transition-all duration-200"
+                className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors py-2"
               >
                 {item.label}
               </a>
             ))}
-            
-            {/* Theme Toggle - Desktop */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
-              aria-label="Toggle theme"
-            >
-              {theme === 'light' ? (
-                <Moon size={20} className="text-gray-700" />
-              ) : (
-                <Sun size={20} className="text-gray-300" />
-              )}
-            </button>
-
-            <Button
-              onClick={(e) => scrollToSection(e, '#contact')}
-              className="bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors duration-200"
-            >
-              Hire Me
-            </Button>
           </nav>
 
-          {/* Mobile Menu Buttons */}
-          <div className="flex items-center gap-2 md:hidden">
-            {/* Theme Toggle - Mobile */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
-              aria-label="Toggle theme"
+          <div className="hidden md:flex items-center">
+            <Button
+              onClick={() => window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}`, '_blank')}
+              className="bg-primary text-white hover:bg-primary/90 hover:-translate-y-0.5 transition-all duration-300 rounded-full px-6 font-semibold shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)]"
             >
-              {theme === 'light' ? (
-                <Moon size={18} className="text-gray-700" />
-              ) : (
-                <Sun size={18} className="text-gray-300" />
-              )}
-            </button>
+              Get In Touch
+            </Button>
+          </div>
 
+          {/* Mobile Menu Button */}
+          <div className="flex items-center md:hidden">
             <button
-              className="text-black dark:text-white hover:scale-110 transition-transform"
+              className="p-2 text-foreground hover:bg-secondary rounded-lg transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -111,26 +87,29 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <nav className="md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700 space-y-4">
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
+            }`}
+        >
+          <nav className="flex flex-col space-y-2 p-4 bg-background/80 backdrop-blur-md border border-border shadow-lg rounded-2xl">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
                 onClick={(e) => scrollToSection(e, item.href)}
-                className="block text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
+                className="text-muted-foreground hover:text-primary hover:bg-secondary/50 px-4 py-3 rounded-xl transition-colors font-semibold"
               >
                 {item.label}
               </a>
             ))}
             <Button
-              onClick={(e) => scrollToSection(e, '#contact')}
-              className="w-full bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200"
+              onClick={() => window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}`, '_blank')}
+              className="w-full mt-4 bg-primary text-white hover:bg-primary/90 rounded-xl py-6 font-bold shadow-[0_0_15px_rgba(168,85,247,0.3)]"
             >
-              Hire Me
+              Get In Touch
             </Button>
           </nav>
-        )}
+        </div>
       </div>
     </header>
   );
