@@ -1,3 +1,5 @@
+import { techStack } from '../mock';
+import * as LucideIcons from 'lucide-react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 
 const TechCard = ({ title, items, className, delay = 0 }) => {

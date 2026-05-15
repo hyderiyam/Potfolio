@@ -1,3 +1,6 @@
+import React from 'react';
+import { about, personalInfo } from '../mock';
+import { CheckCircle2, MapPin } from 'lucide-react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 
 const About = () => {

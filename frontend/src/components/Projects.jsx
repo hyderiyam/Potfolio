@@ -1,3 +1,8 @@
+import React, { useState } from 'react';
+import { projects } from '../mock';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Badge } from './ui/badge';
+import { Layers } from 'lucide-react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 
 const ProjectImage = ({ project }) => {
