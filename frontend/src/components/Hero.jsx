@@ -88,8 +88,8 @@ const Hero = () => {
             Intelligent Systems.
           </h1>
 
-          <p className="text-lg sm:text-2xl font-medium text-gray-300 mb-8 sm:mb-10 max-w-xl leading-relaxed">
-            At <span className="text-white font-bold tracking-tight">Syed Hyder Abbas</span>, we are an elite collective architecting the next generation of <span className="text-primary font-bold">AI & Mobile Systems</span>.
+          <p className="text-lg sm:text-2xl font-medium text-gray-300 mb-8 sm:mb-10 max-w-2xl leading-relaxed">
+            we are an <span className="text-white font-bold tracking-tight">elite collective</span> architecting the next generation of <span className="text-primary font-bold">AI & Mobile Systems.</span>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">

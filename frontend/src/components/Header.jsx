@@ -46,10 +46,10 @@ const Header = () => {
           <a
             href="#hero"
             onClick={(e) => scrollToSection(e, '#hero')}
-            className="text-2xl font-black text-white hover:opacity-80 transition-opacity tracking-tighter flex items-center gap-1 group"
+            className="text-xl sm:text-2xl font-black text-white hover:opacity-80 transition-opacity tracking-tighter flex items-center gap-1 group whitespace-nowrap"
           >
-            <span className="text-primary group-hover:rotate-12 transition-transform inline-block">S.</span>
-            <span className="hidden sm:inline">Hyder</span>
+            <span className="text-primary group-hover:rotate-12 transition-transform inline-block">Syed</span>
+            <span>Hyder Abbas</span>
           </a>
 
           {/* Desktop Navigation */}
