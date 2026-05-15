@@ -44,37 +44,54 @@ const Contact = () => {
         </motion.div>
 
         {/* Contact Info */}
-        <div className="grid sm:grid-cols-2 gap-8 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           <motion.a
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             href={`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center justify-center p-8 bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-300 group shadow-xl hover:-translate-y-2"
+            className="flex flex-col items-center justify-center p-8 bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-300 group shadow-xl"
           >
-            <div className="w-16 h-16 bg-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.1)]">
-              <Mail className="text-primary w-8 h-8" />
+            <div className="w-14 h-14 bg-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.1)]">
+              <Mail className="text-primary w-7 h-7" />
             </div>
-            <span className="text-sm font-bold text-gray-300 mb-1 tracking-wider uppercase">Email Me</span>
-            <span className="text-base text-gray-400 font-medium group-hover:text-white transition-colors">{contact.email}</span>
+            <span className="text-[10px] font-black text-gray-400 mb-1 tracking-widest uppercase">Email</span>
+            <span className="text-sm text-gray-300 font-bold group-hover:text-white transition-colors">{contact.email}</span>
           </motion.a>
 
           <motion.a
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
             href={`tel:${contact.phone}`}
-            className="flex flex-col items-center justify-center p-8 bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 hover:border-secondary/50 hover:bg-white/10 transition-all duration-300 group shadow-xl hover:-translate-y-2"
+            className="flex flex-col items-center justify-center p-8 bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 hover:border-secondary/50 hover:bg-white/10 transition-all duration-300 group shadow-xl"
           >
-            <div className="w-16 h-16 bg-secondary/10 border border-secondary/20 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-secondary/20 transition-all duration-300 shadow-[0_0_15px_rgba(79,70,229,0.1)]">
-              <Phone className="text-secondary w-8 h-8" />
+            <div className="w-14 h-14 bg-secondary/10 border border-secondary/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-secondary/20 transition-all duration-300 shadow-[0_0_15px_rgba(79,70,229,0.1)]">
+              <Phone className="text-secondary w-7 h-7" />
             </div>
-            <span className="text-sm font-bold text-gray-300 mb-1 tracking-wider uppercase">Call Me</span>
-            <span className="text-base text-gray-400 font-medium group-hover:text-white transition-colors">{contact.phone}</span>
+            <span className="text-[10px] font-black text-gray-400 mb-1 tracking-widest uppercase">Phone</span>
+            <span className="text-sm text-gray-300 font-bold group-hover:text-white transition-colors">{contact.phone}</span>
+          </motion.a>
+
+          <motion.a
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            href={`https://wa.me/${contact.whatsapp.replace('+', '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center justify-center p-8 bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 hover:border-emerald-500/50 hover:bg-white/10 transition-all duration-300 group shadow-xl"
+          >
+            <div className="w-14 h-14 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+              <LucideIcons.MessageSquare className="text-emerald-500 w-7 h-7" />
+            </div>
+            <span className="text-[10px] font-black text-gray-400 mb-1 tracking-widest uppercase">WhatsApp</span>
+            <span className="text-sm text-gray-300 font-bold group-hover:text-white transition-colors">Chat on WhatsApp</span>
           </motion.a>
         </div>
 

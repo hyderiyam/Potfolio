@@ -327,8 +327,10 @@ export const process = [
 export const contact = {
   email: "abbashyder9908@gmail.com",
   phone: "+92 328 7172397",
+  whatsapp: "+923287172397",
   social: [
     { platform: "LinkedIn", url: "https://www.linkedin.com/in/syed-hyder-abbas-73b851230", icon: "Linkedin" },
-    { platform: "GitHub", url: "https://github.com/hyderiyam", icon: "Github" }
+    { platform: "GitHub", url: "https://github.com/hyderiyam", icon: "Github" },
+    { platform: "WhatsApp", url: "https://wa.me/923287172397", icon: "MessageSquare" }
   ]
 };
