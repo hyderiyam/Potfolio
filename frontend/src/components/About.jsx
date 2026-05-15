@@ -1,10 +1,32 @@
-import React from 'react';
-import { about, personalInfo } from '../mock';
-import { CheckCircle2, MapPin } from 'lucide-react';
-import { Card, CardContent } from './ui/card';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 
 const About = () => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["5deg", "-5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
   return (
     <section id="about" className="py-32 px-4 sm:px-6 bg-[#030014] relative overflow-hidden bg-grid">
 
@@ -48,42 +70,54 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="lg:col-span-5 space-y-8"
+            className="lg:col-span-5 space-y-8 perspective-[1000px]"
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
           >
-            <div className="glass rounded-[3rem] p-10 shadow-2xl relative overflow-hidden border-white/5">
+            <motion.div 
+              style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+              className="glass rounded-[3rem] p-12 shadow-2xl relative overflow-hidden border-white/5"
+            >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
               
-              <h3 className="text-3xl font-black text-white mb-10 flex items-center gap-4">
-                 <span className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5 text-primary" />
-                 </span>
-                 Highlights
-              </h3>
-              
-              <ul className="space-y-6">
-                {about.highlights.map((highlight, index) => (
-                  <li key={index} className="flex items-start group">
-                    <div className="mt-1.5 mr-4 h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_rgba(168,85,247,0.8)] group-hover:scale-150 transition-transform"></div>
-                    <span className="text-lg font-bold text-gray-400 group-hover:text-white transition-colors leading-relaxed">
-                      {highlight}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              <div style={{ transform: "translateZ(50px)" }}>
+                <h3 className="text-3xl font-black text-white mb-10 flex items-center gap-4">
+                   <span className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
+                      <CheckCircle2 className="w-5 h-5 text-primary" />
+                   </span>
+                   Highlights
+                </h3>
+                
+                <ul className="space-y-6">
+                  {about.highlights.map((highlight, index) => (
+                    <li key={index} className="flex items-start group">
+                      <div className="mt-1.5 mr-4 h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_rgba(168,85,247,0.8)] group-hover:scale-150 transition-transform"></div>
+                      <span className="text-lg font-bold text-gray-400 group-hover:text-white transition-colors leading-relaxed">
+                        {highlight}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
 
             {/* Values Card */}
-            <div className="bg-primary/5 backdrop-blur-3xl border border-primary/20 p-10 rounded-[3rem] shadow-2xl">
-              <h3 className="text-xl font-black text-white mb-8 uppercase tracking-[0.3em] text-center">Core Values</h3>
-              <div className="grid grid-cols-2 gap-6">
-                {['Clean Code', 'Transparency', 'Scalability', 'Agile'].map((val, i) => (
-                   <div key={i} className="flex flex-col items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(168,85,247,1)]"></div>
-                      <span className="text-xs font-black text-gray-400 uppercase tracking-widest">{val}</span>
-                   </div>
-                ))}
+            <motion.div 
+              style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+              className="bg-primary/5 backdrop-blur-3xl border border-primary/20 p-12 rounded-[3rem] shadow-2xl"
+            >
+              <div style={{ transform: "translateZ(30px)" }}>
+                <h3 className="text-xl font-black text-white mb-10 uppercase tracking-[0.3em] text-center">Core Values</h3>
+                <div className="grid grid-cols-2 gap-8">
+                  {['Clean Code', 'Transparency', 'Scalability', 'Agile'].map((val, i) => (
+                     <div key={i} className="flex flex-col items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(168,85,247,1)]"></div>
+                        <span className="text-xs font-black text-gray-400 uppercase tracking-widest">{val}</span>
+                     </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

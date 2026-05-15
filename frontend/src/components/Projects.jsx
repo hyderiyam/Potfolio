@@ -1,9 +1,4 @@
-import React, { useState } from 'react';
-import { projects } from '../mock';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Badge } from './ui/badge';
-import { Layers } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 
 const ProjectImage = ({ project }) => {
   const [hasError, setHasError] = useState(false);
@@ -21,10 +16,118 @@ const ProjectImage = ({ project }) => {
     <img
       src={project.image}
       alt={project.title}
-      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 will-change-transform"
+      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform"
       loading="lazy"
       onError={() => setHasError(true)}
     />
+  );
+};
+
+const ProjectCard = ({ project, index }) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7deg", "-7deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7deg", "7deg"]);
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1, duration: 0.8 }}
+      className="group perspective-[1000px]"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <motion.div 
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: "preserve-3d",
+        }}
+        className="relative h-full glass rounded-[2.5rem] overflow-hidden transition-all duration-300 border-white/5 group-hover:border-primary/30 shadow-2xl"
+      >
+        {/* Image Section */}
+        <div 
+          className="relative h-72 sm:h-80 overflow-hidden"
+          style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d" }}
+        >
+           <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10 opacity-70 group-hover:opacity-40 transition-opacity"></div>
+           <ProjectImage project={project} />
+           
+           {/* Category Badge */}
+           <div 
+             className="absolute top-6 right-6 z-20"
+             style={{ transform: "translateZ(50px)" }}
+           >
+              <div className="px-4 py-1.5 glass-dark rounded-full text-[10px] font-black tracking-widest uppercase text-white border-white/20">
+                {project.category}
+              </div>
+           </div>
+        </div>
+
+        {/* Content Section */}
+        <div 
+          className="p-8 sm:p-10 relative"
+          style={{ transform: "translateZ(40px)", transformStyle: "preserve-3d" }}
+        >
+           <div className="flex items-center gap-3 mb-4">
+              <span className="h-px w-8 bg-primary"></span>
+              <span className="text-[10px] font-black tracking-[0.3em] uppercase text-primary">Featured Project</span>
+           </div>
+           
+           <h3 className="text-3xl sm:text-4xl font-black text-white mb-6 group-hover:text-primary transition-colors duration-500">
+             {project.title}
+           </h3>
+
+           <div className="space-y-6">
+              <p className="text-gray-400 text-sm leading-relaxed line-clamp-2">
+                {project.solution}
+              </p>
+
+              {/* Tech Stack */}
+              <div className="flex flex-wrap gap-2 pt-2">
+                {project.tech.map((tech, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3 py-1.5 bg-white/5 border border-white/10 text-gray-300 text-[10px] font-bold rounded-lg group-hover:border-primary/30 group-hover:text-primary transition-all duration-500"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              {/* Outcome Overlay */}
+              <div className="pt-6 border-t border-white/5 flex flex-col gap-2">
+                 <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Impact</span>
+                 <p className="text-sm font-medium text-white italic">"{project.outcome}"</p>
+              </div>
+           </div>
+        </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
@@ -85,71 +188,7 @@ const Projects = () => {
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-16">
           {filteredProjects.map((project, index) => (
-            <motion.div
-              layout
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              key={project.id}
-              className="group"
-            >
-              <div className="relative h-full glass rounded-[2.5rem] overflow-hidden transition-all duration-700 hover:shadow-[0_0_50px_rgba(168,85,247,0.2)] hover:-translate-y-2 border-white/5 hover:border-primary/30">
-                
-                {/* Image Section */}
-                <div className="relative h-72 sm:h-80 overflow-hidden">
-                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                   <ProjectImage project={project} />
-                   
-                   {/* Category Badge */}
-                   <div className="absolute top-6 right-6 z-20">
-                      <div className="px-4 py-1.5 glass-dark rounded-full text-[10px] font-black tracking-widest uppercase text-white border-white/20">
-                        {project.category}
-                      </div>
-                   </div>
-                </div>
-
-                {/* Content Section */}
-                <div className="p-8 sm:p-10 relative">
-                   <div className="flex items-center gap-3 mb-4">
-                      <span className="h-px w-8 bg-primary"></span>
-                      <span className="text-[10px] font-black tracking-[0.3em] uppercase text-primary">Featured Project</span>
-                   </div>
-                   
-                   <h3 className="text-3xl sm:text-4xl font-black text-white mb-6 group-hover:text-primary transition-colors duration-500">
-                     {project.title}
-                   </h3>
-
-                   <div className="space-y-6">
-                      <p className="text-gray-400 text-sm leading-relaxed line-clamp-2">
-                        {project.solution}
-                      </p>
-
-                      {/* Tech Stack */}
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {project.tech.map((tech, idx) => (
-                          <span
-                            key={idx}
-                            className="px-3 py-1.5 bg-white/5 border border-white/10 text-gray-300 text-[10px] font-bold rounded-lg group-hover:border-primary/30 group-hover:text-primary transition-all duration-500"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Outcome Overlay - Shows on Hover */}
-                      <motion.div 
-                        initial={{ opacity: 0 }}
-                        whileHover={{ opacity: 1 }}
-                        className="absolute inset-x-8 bottom-8 pt-6 border-t border-white/5 flex flex-col gap-2"
-                      >
-                         <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Impact</span>
-                         <p className="text-sm font-medium text-white italic">"{project.outcome}"</p>
-                      </motion.div>
-                   </div>
-                </div>
-              </div>
-            </motion.div>
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
       </div>

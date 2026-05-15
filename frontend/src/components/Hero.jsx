@@ -1,10 +1,32 @@
-import React from 'react';
-import { Button } from './ui/button';
-import { personalInfo, contact } from '../mock';
-import { ArrowRight, Download } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 
 const Hero = () => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
   const scrollToSection = (sectionId) => {
     const element = document.querySelector(sectionId);
     if (element) {
@@ -13,7 +35,12 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 pt-32 pb-20 overflow-hidden bg-grid">
+    <section 
+      id="hero" 
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 pt-32 pb-20 overflow-hidden bg-grid"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
 
       {/* Dynamic Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -21,7 +48,7 @@ const Hero = () => {
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/20 rounded-full blur-[120px] animate-glow" style={{ animationDelay: '2s' }}></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center perspective-[2000px]">
 
         {/* Left Column: Text */}
         <motion.div
@@ -35,7 +62,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="inline-flex items-center px-4 py-2 glass rounded-full mb-8"
+            className="inline-flex items-center px-4 py-2 glass rounded-full mb-8 shadow-2xl"
           >
             <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2 shadow-[0_0_12px_rgba(16,185,129,0.8)] animate-pulse"></span>
             <span className="text-xs font-bold uppercase tracking-widest text-gray-400">{personalInfo.availability}</span>
@@ -44,18 +71,18 @@ const Hero = () => {
           {/* Main Headline */}
           <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white mb-8 tracking-tighter leading-[0.9] text-gradient">
             Engineering <br />
-            <span className="text-primary italic">Intelligent</span> <br />
-            Experiences.
+            <span className="text-primary italic">3D-Intelligent</span> <br />
+            Systems.
           </h1>
 
           <p className="text-xl sm:text-2xl font-medium text-gray-300 mb-8 max-w-xl leading-relaxed">
-            I'm <span className="text-white font-bold tracking-tight">Syed Hyder Abbas</span>, a <span className="text-primary font-bold">Full Stack AI Architect</span> dedicated to building scalable, high-performance systems.
+            I'm <span className="text-white font-bold tracking-tight">Syed Hyder Abbas</span>, building the next generation of <span className="text-primary font-bold">AI & Mobile Architectures</span> with depth and precision.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
             <Button
               onClick={() => window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}`, '_blank')}
-              className="bg-primary text-white hover:bg-primary/90 transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] duration-300 px-10 py-7 text-lg rounded-full font-bold"
+              className="bg-primary text-white hover:bg-primary/90 transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.7)] duration-300 px-10 py-7 text-lg rounded-full font-bold"
             >
               Start a Project <ArrowRight className="ml-2" size={20} />
             </Button>
@@ -71,13 +98,21 @@ const Hero = () => {
 
         {/* Right Column: Visual/Stats */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          style={{
+            rotateX,
+            rotateY,
+            transformStyle: "preserve-3d",
+          }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "circOut" }}
           className="relative flex justify-center items-center"
         >
           {/* Main Glass Frame */}
-          <div className="relative w-full max-w-md aspect-square glass rounded-[3rem] p-1 shadow-2xl overflow-hidden group">
+          <div 
+            className="relative w-full max-w-md aspect-square glass rounded-[3rem] p-1 shadow-[0_50px_100px_rgba(0,0,0,0.5)] overflow-hidden group"
+            style={{ transform: "translateZ(50px)" }}
+          >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/20 opacity-50"></div>
             
             <div className="relative z-10 w-full h-full bg-black/60 backdrop-blur-3xl rounded-[2.8rem] p-8 grid grid-cols-2 gap-6 items-stretch">
@@ -89,8 +124,9 @@ const Hero = () => {
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
-                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileHover={{ scale: 1.05, translateZ: 30 }}
                   className="glass-dark rounded-3xl p-6 flex flex-col justify-center items-center group/card transition-all cursor-default border border-white/5 hover:border-primary/30"
+                  style={{ transformStyle: "preserve-3d" }}
                 >
                   <div className={`text-4xl font-black text-white mb-2 group-hover/card:text-${item.color}`}>
                     {item.label}
@@ -103,21 +139,24 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Decorative floating elements */}
+          {/* Decorative floating elements with different depths */}
           <motion.div 
-            animate={{ y: [-10, 10, -10] }}
-            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-            className="absolute -top-10 -right-10 w-24 h-24 glass rounded-2xl flex items-center justify-center shadow-2xl rotate-12"
+            animate={{ y: [-15, 15, -15], rotate: [12, 8, 12] }}
+            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+            className="absolute -top-10 -right-10 w-28 h-28 glass rounded-3xl flex items-center justify-center shadow-2xl z-20"
+            style={{ transform: "translateZ(100px)" }}
           >
-             <div className="text-2xl font-black text-primary">5.0</div>
+             <div className="text-3xl font-black text-primary">5.0</div>
           </motion.div>
+          
           <motion.div 
-            animate={{ y: [10, -10, 10] }}
-            transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-            className="absolute -bottom-10 -left-10 w-32 h-32 glass rounded-2xl p-4 flex flex-col justify-center shadow-2xl -rotate-12"
+            animate={{ y: [15, -15, 15], rotate: [-12, -8, -12] }}
+            transition={{ repeat: Infinity, duration: 7, ease: "easeInOut" }}
+            className="absolute -bottom-10 -left-10 w-36 h-36 glass rounded-3xl p-6 flex flex-col justify-center shadow-2xl z-20"
+            style={{ transform: "translateZ(80px)" }}
           >
-             <div className="text-xs font-bold text-gray-400 uppercase mb-1">Success</div>
-             <div className="text-xl font-black text-white">100%</div>
+             <div className="text-xs font-black text-gray-500 uppercase mb-1 tracking-widest">Success</div>
+             <div className="text-2xl font-black text-white">100%</div>
           </motion.div>
         </motion.div>
 
