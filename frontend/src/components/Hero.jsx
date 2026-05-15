@@ -89,7 +89,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-lg sm:text-2xl font-medium text-gray-300 mb-8 sm:mb-10 max-w-2xl leading-relaxed">
-            we are an <span className="text-white font-bold tracking-tight">elite collective</span> architecting the next generation of <span className="text-primary font-bold">AI & Mobile Systems.</span>
+            We are an <span className="text-white font-bold tracking-tight">elite collective</span> architecting the next generation of <span className="text-primary font-bold">AI & Mobile Systems.</span>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
@@ -160,24 +160,24 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Decorative floating elements */}
+          {/* Decorative floating elements - Tight Overlap */}
           <motion.div 
             animate={{ y: [-10, 10, -10], rotate: [12, 8, 12] }}
             transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-20 h-20 sm:w-24 sm:h-24 glass rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-2xl z-20 border border-white/10"
-            style={{ transform: "translateZ(100px)" }}
+            className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-24 h-24 sm:w-28 sm:h-28 glass rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-2xl z-20 border border-white/20 scale-110"
+            style={{ transform: "translateZ(120px)" }}
           >
-             <div className="text-2xl sm:text-3xl font-black text-primary">5.0</div>
+             <div className="text-3xl sm:text-4xl font-black text-primary drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]">5.0</div>
           </motion.div>
           
           <motion.div 
             animate={{ y: [10, -10, 10], rotate: [-12, -8, -12] }}
             transition={{ repeat: Infinity, duration: 7, ease: "easeInOut" }}
-            className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 w-24 h-24 sm:w-32 sm:h-32 glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col justify-center shadow-2xl z-20 border border-white/10"
-            style={{ transform: "translateZ(80px)" }}
+            className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-28 h-28 sm:w-36 sm:h-36 glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col justify-center shadow-2xl z-20 border border-white/20 scale-110"
+            style={{ transform: "translateZ(100px)" }}
           >
              <div className="text-[8px] sm:text-xs font-black text-gray-500 uppercase mb-1 tracking-widest text-center sm:text-left">Success</div>
-             <div className="text-lg sm:text-2xl font-black text-white text-center sm:text-left">100%</div>
+             <div className="text-2xl sm:text-3xl font-black text-white text-center sm:text-left">100%</div>
           </motion.div>
         </motion.div>
 
