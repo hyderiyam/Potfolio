@@ -13,96 +13,111 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 pt-32 pb-20 overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 pt-32 pb-20 overflow-hidden bg-grid">
 
-      {/* Absolute Radial Glow Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] bg-primary/5 rounded-full blur-[100px] md:blur-[150px] pointer-events-none"></div>
+      {/* Dynamic Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px] animate-glow"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/20 rounded-full blur-[120px] animate-glow" style={{ animationDelay: '2s' }}></div>
+      </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
         {/* Left Column: Text */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-start text-left"
         >
           {/* Availability Badge */}
-          <div className="inline-flex items-center px-4 py-2 bg-white/5 backdrop-blur-md rounded-full mb-8 border border-white/10">
-            <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
-            <span className="text-sm font-semibold text-gray-300">{personalInfo.availability}</span>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="inline-flex items-center px-4 py-2 glass rounded-full mb-8"
+          >
+            <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2 shadow-[0_0_12px_rgba(16,185,129,0.8)] animate-pulse"></span>
+            <span className="text-xs font-bold uppercase tracking-widest text-gray-400">{personalInfo.availability}</span>
+          </motion.div>
 
           {/* Main Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black text-white mb-6 tracking-tighter leading-[1.1]">
-            A Developer who judges a book by its
-            <br className="hidden sm:block" />
-            <span className="relative inline-block mt-2 sm:mt-4">
-              <span className="relative z-10 px-4 sm:px-6 py-1 text-white bg-primary rounded-full border-2 border-primary/50 shadow-[0_0_30px_rgba(168,85,247,0.4)]">code</span>
-            </span>...
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white mb-8 tracking-tighter leading-[0.9] text-gradient">
+            Engineering <br />
+            <span className="text-primary italic">Intelligent</span> <br />
+            Experiences.
           </h1>
 
-          <p className="text-xl sm:text-2xl font-medium text-gray-300 mb-6 mt-4">
-            I'm <span className="text-white font-bold tracking-tight">Syed Hyder Abbas</span>,<br className="sm:hidden" /> a <span className="text-primary font-bold">Full Stack AI Developer</span>
+          <p className="text-xl sm:text-2xl font-medium text-gray-300 mb-8 max-w-xl leading-relaxed">
+            I'm <span className="text-white font-bold tracking-tight">Syed Hyder Abbas</span>, a <span className="text-primary font-bold">Full Stack AI Architect</span> dedicated to building scalable, high-performance systems.
           </p>
 
-          <p className="text-base sm:text-lg text-gray-400 mb-10 max-w-lg leading-relaxed">
-            {personalInfo.description}
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
             <Button
               onClick={() => window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}`, '_blank')}
-              className="bg-primary text-white hover:bg-primary/90 transition-transform hover:scale-105 duration-300 px-8 py-6 text-lg rounded-full font-bold shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+              className="bg-primary text-white hover:bg-primary/90 transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] duration-300 px-10 py-7 text-lg rounded-full font-bold"
             >
-              Get In Touch <ArrowRight className="ml-2" size={20} />
+              Start a Project <ArrowRight className="ml-2" size={20} />
             </Button>
             <Button
               onClick={() => scrollToSection('#projects')}
               variant="outline"
-              className="border-2 border-white/10 bg-transparent text-white hover:bg-white/10 transition-colors duration-300 px-8 py-6 text-lg rounded-full font-bold"
+              className="border-2 border-white/10 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 transition-all duration-300 px-10 py-7 text-lg rounded-full font-bold"
             >
-              View My Work
+              See My Work
             </Button>
           </div>
         </motion.div>
 
         {/* Right Column: Visual/Stats */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative flex justify-center items-center mt-12 lg:mt-0"
+          initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 1, ease: "circOut" }}
+          className="relative flex justify-center items-center"
         >
-          {/* Glass pane for tech stack summary with floating animation */}
-          <motion.div
-            animate={{ y: [0, -15, 0] }}
-            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            className="relative w-full max-w-lg aspect-square bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2rem] p-4 sm:p-8 flex flex-col shadow-2xl overflow-hidden group"
-          >
-
-            {/* Inner ambient glow */}
-            <div className="absolute -top-20 -right-20 w-64 h-64 bg-secondary/30 rounded-full blur-[80px] group-hover:bg-secondary/40 transition-colors duration-500"></div>
-            <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-primary/20 rounded-full blur-[80px] group-hover:bg-primary/30 transition-colors duration-500"></div>
-
-            <div className="relative z-10 grid grid-cols-2 gap-4 w-full h-full">
-              <div className="bg-black/40 rounded-3xl p-6 flex flex-col justify-center items-center border border-white/5 hover:border-primary/50 transition-colors group/card">
-                <div className="text-4xl font-black text-white mb-2 group-hover/card:scale-110 transition-transform">AI</div>
-                <div className="text-xs sm:text-sm text-primary font-bold tracking-wider text-center">Deep Learning</div>
-              </div>
-              <div className="bg-black/40 rounded-3xl p-6 flex flex-col justify-center items-center border border-white/5 hover:border-secondary/50 transition-colors group/card">
-                <div className="text-4xl font-black text-white mb-2 group-hover/card:scale-110 transition-transform">App</div>
-                <div className="text-xs sm:text-sm text-secondary font-bold tracking-wider text-center">Flutter Mobile</div>
-              </div>
-              <div className="bg-black/40 rounded-3xl p-6 flex flex-col justify-center items-center border border-white/5 hover:border-secondary/50 transition-colors group/card">
-                <div className="text-4xl font-black text-white mb-2 group-hover/card:scale-110 transition-transform">API</div>
-                <div className="text-xs sm:text-sm text-secondary font-bold tracking-wider text-center">Node Backend</div>
-              </div>
-              <div className="bg-black/40 rounded-3xl p-6 flex flex-col justify-center items-center border border-white/5 hover:border-primary/50 transition-colors group/card">
-                <div className="text-4xl font-black text-white mb-2 group-hover/card:scale-110 transition-transform">Web</div>
-                <div className="text-xs sm:text-sm text-primary font-bold tracking-wider text-center">React Single Page</div>
-              </div>
+          {/* Main Glass Frame */}
+          <div className="relative w-full max-w-md aspect-square glass rounded-[3rem] p-1 shadow-2xl overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/20 opacity-50"></div>
+            
+            <div className="relative z-10 w-full h-full bg-black/60 backdrop-blur-3xl rounded-[2.8rem] p-8 grid grid-cols-2 gap-6 items-stretch">
+              {[
+                { label: 'AI', sub: 'Deep Learning', color: 'primary' },
+                { label: 'APP', sub: 'Flutter Expert', color: 'secondary' },
+                { label: 'API', sub: 'Node Backend', color: 'primary' },
+                { label: 'WEB', sub: 'React Systems', color: 'secondary' }
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="glass-dark rounded-3xl p-6 flex flex-col justify-center items-center group/card transition-all cursor-default border border-white/5 hover:border-primary/30"
+                >
+                  <div className={`text-4xl font-black text-white mb-2 group-hover/card:text-${item.color}`}>
+                    {item.label}
+                  </div>
+                  <div className={`text-[10px] uppercase tracking-[0.2em] font-black text-${item.color}/70 text-center`}>
+                    {item.sub}
+                  </div>
+                </motion.div>
+              ))}
             </div>
+          </div>
+
+          {/* Decorative floating elements */}
+          <motion.div 
+            animate={{ y: [-10, 10, -10] }}
+            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+            className="absolute -top-10 -right-10 w-24 h-24 glass rounded-2xl flex items-center justify-center shadow-2xl rotate-12"
+          >
+             <div className="text-2xl font-black text-primary">5.0</div>
+          </motion.div>
+          <motion.div 
+            animate={{ y: [10, -10, 10] }}
+            transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+            className="absolute -bottom-10 -left-10 w-32 h-32 glass rounded-2xl p-4 flex flex-col justify-center shadow-2xl -rotate-12"
+          >
+             <div className="text-xs font-bold text-gray-400 uppercase mb-1">Success</div>
+             <div className="text-xl font-black text-white">100%</div>
           </motion.div>
         </motion.div>
 

@@ -37,24 +37,26 @@ const Projects = () => {
     : projects.filter(p => p.category === activeFilter);
 
   return (
-    <section id="projects" className="py-24 sm:py-32 px-4 sm:px-6 bg-[#030014] relative overflow-hidden">
+    <section id="projects" className="py-32 px-4 sm:px-6 bg-[#030014] relative overflow-hidden bg-grid">
 
-      {/* Background ambient glow */}
-      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] pointer-events-none"></div>
+      {/* Decorative Background Glows */}
+      <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-primary/10 rounded-full blur-[120px] pointer-events-none animate-glow"></div>
+      <div className="absolute bottom-0 left-0 w-[50%] h-[50%] bg-secondary/10 rounded-full blur-[120px] pointer-events-none animate-glow" style={{ animationDelay: '3s' }}></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center mb-24"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 tracking-tight">
-            Featured <span className="text-primary italic">Projects</span>
+          <h2 className="text-5xl sm:text-7xl font-black text-white mb-8 tracking-tighter text-gradient">
+            Selected <span className="text-primary italic">Works</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto font-medium">
-            Production-grade systems delivering real business value
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto font-medium leading-relaxed">
+            A showcase of production-ready systems, intelligent AI pipelines, and high-performance mobile applications.
           </p>
         </motion.div>
 
@@ -64,15 +66,15 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3 mb-16"
+          className="flex flex-wrap justify-center gap-4 mb-20"
         >
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveFilter(category)}
-              className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${activeFilter === category
-                ? 'bg-primary text-white shadow-[0_0_15px_rgba(168,85,247,0.4)]'
-                : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10'
+              className={`px-8 py-3 rounded-full text-xs font-black tracking-[0.2em] uppercase transition-all duration-500 border ${activeFilter === category
+                ? 'bg-primary text-white border-primary shadow-[0_0_25px_rgba(168,85,247,0.5)] scale-105'
+                : 'bg-white/5 text-gray-500 border-white/10 hover:border-white/20 hover:text-white'
                 }`}
             >
               {category}
@@ -81,90 +83,72 @@ const Projects = () => {
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-16">
           {filteredProjects.map((project, index) => (
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              layout
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
+              transition={{ delay: index * 0.1, duration: 0.6 }}
               key={project.id}
+              className="group"
             >
-              <Card
-                className="group border border-white/10 bg-[#0F0721] shadow-2xl hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] transition-all duration-500 flex flex-col rounded-[2rem] overflow-hidden relative"
-              >
-                {/* Subtle top border glow */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                {/* Project Image Panel */}
-                <div className="relative h-64 sm:h-80 bg-black/40 overflow-hidden border-b border-white/5">
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F0721] to-transparent z-10 pointer-events-none"></div>
-                  <ProjectImage project={project} />
-
-                  {/* Floating Glassmorphism Category Badge */}
-                  <div className="absolute top-4 right-4 z-20">
-                    <Badge variant="secondary" className="bg-white/10 backdrop-blur-md text-white border-white/20 font-bold px-3 py-1 text-xs shadow-xl">
-                      {project.category}
-                    </Badge>
-                  </div>
+              <div className="relative h-full glass rounded-[2.5rem] overflow-hidden transition-all duration-700 hover:shadow-[0_0_50px_rgba(168,85,247,0.2)] hover:-translate-y-2 border-white/5 hover:border-primary/30">
+                
+                {/* Image Section */}
+                <div className="relative h-72 sm:h-80 overflow-hidden">
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                   <ProjectImage project={project} />
+                   
+                   {/* Category Badge */}
+                   <div className="absolute top-6 right-6 z-20">
+                      <div className="px-4 py-1.5 glass-dark rounded-full text-[10px] font-black tracking-widest uppercase text-white border-white/20">
+                        {project.category}
+                      </div>
+                   </div>
                 </div>
 
-                {/* Content Panel */}
-                <div className="flex-1 flex flex-col p-5 sm:p-8 relative z-20 -mt-8 sm:-mt-20 mx-3 sm:mx-6 mb-4 sm:mb-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl">
-                  <CardHeader className="p-0 mb-6 sm:mb-8">
-                    <div className="text-primary text-[10px] sm:text-sm font-bold mb-2 tracking-widest uppercase">Featured Project</div>
-                    <CardTitle className="text-2xl sm:text-3xl font-bold text-white group-hover:text-primary transition-colors duration-300">
-                      {project.title}
-                    </CardTitle>
-                  </CardHeader>
+                {/* Content Section */}
+                <div className="p-8 sm:p-10 relative">
+                   <div className="flex items-center gap-3 mb-4">
+                      <span className="h-px w-8 bg-primary"></span>
+                      <span className="text-[10px] font-black tracking-[0.3em] uppercase text-primary">Featured Project</span>
+                   </div>
+                   
+                   <h3 className="text-3xl sm:text-4xl font-black text-white mb-6 group-hover:text-primary transition-colors duration-500">
+                     {project.title}
+                   </h3>
 
-                  <CardContent className="p-0 space-y-6 flex-1 flex flex-col">
-                    {/* Problem & Solution Grid */}
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div className="bg-black/30 rounded-xl p-4 border border-white/5">
-                        <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
-                          <span className="w-2 h-2 rounded-full bg-red-400 shadow-[0_0_8px_rgba(248,113,113,0.8)]"></span>
-                          Problem
-                        </h4>
-                        <p className="text-sm text-gray-400 leading-relaxed">{project.problem}</p>
-                      </div>
-
-                      <div className="bg-black/30 rounded-xl p-4 border border-white/5">
-                        <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
-                          <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span>
-                          Solution
-                        </h4>
-                        <p className="text-sm text-gray-400 leading-relaxed">{project.solution}</p>
-                      </div>
-                    </div>
-
-                    <div className="flex-1"></div>
-
-                    <div className="pt-6 border-t border-white/10 space-y-6">
-                      {/* Outcome */}
-                      <div>
-                        <h4 className="text-sm font-bold text-white mb-2">Business Outcome</h4>
-                        <p className="text-sm font-medium text-emerald-400">{project.outcome}</p>
-                      </div>
+                   <div className="space-y-6">
+                      <p className="text-gray-400 text-sm leading-relaxed line-clamp-2">
+                        {project.solution}
+                      </p>
 
                       {/* Tech Stack */}
-                      <div>
-                        <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Core Technologies</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {project.tech.map((tech, idx) => (
-                            <span
-                              key={idx}
-                              className="px-3 py-1.5 bg-primary/10 text-primary border border-primary/20 font-bold text-xs rounded-lg shadow-sm"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
+                      <div className="flex flex-wrap gap-2 pt-2">
+                        {project.tech.map((tech, idx) => (
+                          <span
+                            key={idx}
+                            className="px-3 py-1.5 bg-white/5 border border-white/10 text-gray-300 text-[10px] font-bold rounded-lg group-hover:border-primary/30 group-hover:text-primary transition-all duration-500"
+                          >
+                            {tech}
+                          </span>
+                        ))}
                       </div>
-                    </div>
-                  </CardContent>
+
+                      {/* Outcome Overlay - Shows on Hover */}
+                      <motion.div 
+                        initial={{ opacity: 0 }}
+                        whileHover={{ opacity: 1 }}
+                        className="absolute inset-x-8 bottom-8 pt-6 border-t border-white/5 flex flex-col gap-2"
+                      >
+                         <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Impact</span>
+                         <p className="text-sm font-medium text-white italic">"{project.outcome}"</p>
+                      </motion.div>
+                   </div>
                 </div>
-              </Card>
+              </div>
             </motion.div>
           ))}
         </div>

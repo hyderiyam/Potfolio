@@ -14,6 +14,8 @@ import Process from './components/Process';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
+import CustomCursor from './components/CustomCursor';
+
 function App() {
   useEffect(() => {
     // Smooth scroll behavior
@@ -23,7 +25,9 @@ function App() {
   return (
     <ThemeProvider>
       <div className="App bg-background min-h-screen transition-colors duration-300">
+        <CustomCursor />
         <Header />
+
         <main>
           <Hero />
           <Services />

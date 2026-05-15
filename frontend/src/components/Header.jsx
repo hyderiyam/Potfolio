@@ -8,11 +8,9 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    // Ensure dark mode is active for consistency with design system
     document.documentElement.classList.add('dark');
-
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -36,30 +34,31 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${isScrolled
-        ? 'bg-background/50 backdrop-blur-md border-border shadow-lg py-3'
-        : 'bg-transparent border-transparent py-5'
-        }`}
+      className={`fixed top-4 left-0 right-0 z-50 transition-all duration-700 px-4 sm:px-6`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between">
+      <div className={`max-w-7xl mx-auto transition-all duration-700 ${isScrolled ? 'w-full' : 'w-full'}`}>
+        <div className={`flex items-center justify-between px-6 py-4 rounded-full border transition-all duration-700 ${isScrolled 
+          ? 'glass shadow-[0_0_50px_rgba(0,0,0,0.5)] border-white/10 py-3' 
+          : 'bg-transparent border-transparent py-5'}`}
+        >
           {/* Logo */}
           <a
             href="#hero"
             onClick={(e) => scrollToSection(e, '#hero')}
-            className="text-xl sm:text-2xl font-black text-foreground hover:opacity-80 transition-opacity tracking-tighter flex items-center gap-2"
+            className="text-2xl font-black text-white hover:opacity-80 transition-opacity tracking-tighter flex items-center gap-1 group"
           >
-            <span className="text-primary">S.</span>Hyder
+            <span className="text-primary group-hover:rotate-12 transition-transform inline-block">S.</span>
+            <span>Hyder</span>
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-2 lg:space-x-4">
+          <nav className="hidden md:flex items-center bg-white/5 backdrop-blur-md border border-white/5 px-2 py-1 rounded-full">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
                 onClick={(e) => scrollToSection(e, item.href)}
-                className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors py-2"
+                className="text-[10px] uppercase tracking-[0.2em] font-black text-gray-400 hover:text-white transition-all px-4 py-2 hover:bg-white/5 rounded-full"
               >
                 {item.label}
               </a>
@@ -69,16 +68,16 @@ const Header = () => {
           <div className="hidden md:flex items-center">
             <Button
               onClick={() => window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}`, '_blank')}
-              className="bg-primary text-white hover:bg-primary/90 hover:-translate-y-0.5 transition-all duration-300 rounded-full px-6 font-semibold shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)]"
+              className="bg-primary text-white hover:bg-primary/90 hover:scale-105 transition-all duration-500 rounded-full px-8 py-6 text-sm font-black uppercase tracking-widest shadow-[0_0_20px_rgba(168,85,247,0.4)]"
             >
-              Get In Touch
+              Hire Me
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex items-center md:hidden">
             <button
-              className="p-2 text-foreground hover:bg-secondary rounded-lg transition-colors"
+              className="p-2 text-white hover:bg-white/10 rounded-full transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -88,25 +87,25 @@ const Header = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
+          className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
             }`}
         >
-          <nav className="flex flex-col space-y-2 p-4 bg-background/80 backdrop-blur-md border border-border shadow-lg rounded-2xl">
+          <nav className="flex flex-col space-y-2 p-6 glass border border-white/10 shadow-2xl rounded-[2rem]">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
                 onClick={(e) => scrollToSection(e, item.href)}
-                className="text-muted-foreground hover:text-primary hover:bg-secondary/50 px-4 py-3 rounded-xl transition-colors font-semibold"
+                className="text-gray-400 hover:text-white hover:bg-white/5 px-4 py-4 rounded-2xl transition-all font-black uppercase tracking-widest text-xs"
               >
                 {item.label}
               </a>
             ))}
             <Button
               onClick={() => window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}`, '_blank')}
-              className="w-full mt-4 bg-primary text-white hover:bg-primary/90 rounded-xl py-6 font-bold shadow-[0_0_15px_rgba(168,85,247,0.3)]"
+              className="w-full mt-4 bg-primary text-white hover:bg-primary/90 rounded-2xl py-8 font-black uppercase tracking-widest shadow-xl"
             >
-              Get In Touch
+              Let's Talk
             </Button>
           </nav>
         </div>

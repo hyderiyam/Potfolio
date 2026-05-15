@@ -6,90 +6,84 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   return (
-    <section id="about" className="py-24 sm:py-32 px-4 sm:px-6 bg-background relative overflow-hidden">
+    <section id="about" className="py-32 px-4 sm:px-6 bg-[#030014] relative overflow-hidden bg-grid">
 
       {/* Background ambient glow */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px] pointer-events-none animate-glow"></div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="grid lg:grid-cols-12 gap-20 items-center">
           {/* Left Column - Story */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="lg:col-span-7"
           >
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-8 tracking-tight">
-              About <span className="text-primary italic">Me</span>
+            <h2 className="text-5xl sm:text-7xl font-black text-white mb-10 tracking-tighter text-gradient">
+              Behind the <span className="text-primary italic">Code</span>
             </h2>
-            <div className="space-y-6 text-lg text-gray-400 leading-relaxed font-medium">
+            <div className="space-y-8 text-xl text-gray-400 leading-relaxed font-medium">
               {about.story.split('\n\n').map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
             </div>
 
             {/* Location */}
-            <div className="mt-12 pt-8 border-t border-white/10 flex items-center gap-4 text-white font-semibold">
-              <div className="w-12 h-12 rounded-full bg-secondary/20 border border-secondary/30 flex items-center justify-center">
-                <MapPin className="text-secondary w-6 h-6" />
+            <div className="mt-16 pt-10 border-t border-white/5 flex items-center gap-6 text-white font-bold">
+              <div className="w-16 h-16 rounded-3xl bg-secondary/10 border border-secondary/20 flex items-center justify-center shadow-2xl">
+                <MapPin className="text-secondary w-8 h-8" />
               </div>
               <div>
-                <span className="block text-sm text-gray-400 font-medium">Based in</span>
-                {personalInfo.location}
+                <span className="block text-xs text-gray-500 font-black uppercase tracking-[0.2em] mb-1">Global Presence</span>
+                <span className="text-lg">{personalInfo.location}</span>
               </div>
             </div>
           </motion.div>
 
           {/* Right Column - Highlights */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 space-y-6"
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="lg:col-span-5 space-y-8"
           >
-            <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-2xl overflow-hidden rounded-[2rem]">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-8 border-b border-white/10 pb-4">
-                  Key Highlights
-                </h3>
-                <ul className="space-y-5">
-                  {about.highlights.map((highlight, index) => (
-                    <li key={index} className="flex items-start group">
-                      <div className="mt-1 mr-4 rounded-full bg-primary/20 border border-primary/30 p-1 group-hover:bg-primary/40 transition-colors shadow-[0_0_10px_rgba(168,85,247,0.3)]">
-                        <CheckCircle2 className="w-4 h-4 text-primary" />
-                      </div>
-                      <span className="text-base font-medium text-gray-300 group-hover:text-white transition-colors leading-relaxed">
-                        {highlight}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+            <div className="glass rounded-[3rem] p-10 shadow-2xl relative overflow-hidden border-white/5">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+              
+              <h3 className="text-3xl font-black text-white mb-10 flex items-center gap-4">
+                 <span className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 text-primary" />
+                 </span>
+                 Highlights
+              </h3>
+              
+              <ul className="space-y-6">
+                {about.highlights.map((highlight, index) => (
+                  <li key={index} className="flex items-start group">
+                    <div className="mt-1.5 mr-4 h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_rgba(168,85,247,0.8)] group-hover:scale-150 transition-transform"></div>
+                    <span className="text-lg font-bold text-gray-400 group-hover:text-white transition-colors leading-relaxed">
+                      {highlight}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-            {/* Core Values */}
-            <Card className="bg-primary/10 backdrop-blur-md border-primary/30 shadow-[0_0_30px_rgba(168,85,247,0.15)] mt-6 rounded-[2rem]">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-bold text-white mb-6">What I Value</h3>
-                <ul className="grid grid-cols-2 gap-4 text-sm font-semibold text-gray-200">
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(168,85,247,0.8)]" /> Clean Code
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(168,85,247,0.8)]" /> Transparency
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(168,85,247,0.8)]" /> Scalability
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(168,85,247,0.8)]" /> Agile Delivery
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+            {/* Values Card */}
+            <div className="bg-primary/5 backdrop-blur-3xl border border-primary/20 p-10 rounded-[3rem] shadow-2xl">
+              <h3 className="text-xl font-black text-white mb-8 uppercase tracking-[0.3em] text-center">Core Values</h3>
+              <div className="grid grid-cols-2 gap-6">
+                {['Clean Code', 'Transparency', 'Scalability', 'Agile'].map((val, i) => (
+                   <div key={i} className="flex flex-col items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(168,85,247,1)]"></div>
+                      <span className="text-xs font-black text-gray-400 uppercase tracking-widest">{val}</span>
+                   </div>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
