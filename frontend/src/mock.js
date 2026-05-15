@@ -12,7 +12,7 @@ export const personalInfo = {
 };
 
 export const about = {
-  story: `Hi, I’m Syed Hyder — an AI, Mobile App, and Full-Stack Engineer.
+  story: `Hi, I’m Syed Hyder, an AI, Mobile App, and Full-Stack Engineer.
 
 I specialize in integrating cutting-edge machine learning and deep learning models into production applications. On the mobile front, I build high-performance, fluid cross-platform apps using Flutter combined with advanced state management like Riverpod and Bloc.
 
