@@ -99,6 +99,78 @@ export const certifications = [
     issuer: "HCI Workshop",
     date: "03/2025",
     description: "Intensive training on how human interaction shapes software interfaces and industry design standards."
+  },
+  {
+    id: 4,
+    title: "Accelerate Your Job Search with AI",
+    issuer: "Google",
+    date: "12/2025",
+    credentialId: "DHMFEA5VKFYG",
+    description: "Mastered AI-driven strategies for career advancement and professional positioning."
+  },
+  {
+    id: 5,
+    title: "Advanced MySQL Topics",
+    issuer: "Meta",
+    date: "12/2025",
+    credentialId: "SD9MEDX2OFXU",
+    description: "Advanced database optimization, stored procedures, and complex query engineering."
+  },
+  {
+    id: 6,
+    title: "How to write a research paper",
+    issuer: "Higher Education Commission, Pakistan",
+    date: "08/2025",
+    credentialId: "77YWJEHZ148G",
+    description: "Academic writing standards and research methodology for computer science."
+  },
+  {
+    id: 7,
+    title: "Database Structures and Management with MySQL",
+    issuer: "Meta",
+    date: "08/2025",
+    credentialId: "6VWW9J68P3SH",
+    description: "Core MySQL architecture, normalization, and relational management."
+  },
+  {
+    id: 8,
+    title: "Version Control",
+    issuer: "Meta",
+    date: "07/2025",
+    credentialId: "IKEZ2CP9N0TJ",
+    description: "Advanced Git workflows and collaborative development practices."
+  },
+  {
+    id: 9,
+    title: "Foundations of Cybersecurity",
+    issuer: "Google",
+    date: "07/2025",
+    credentialId: "DU7FOEC353KX",
+    description: "Security protocols, threat assessment, and infrastructure protection."
+  },
+  {
+    id: 10,
+    title: "Introduction to Databases",
+    issuer: "Meta",
+    date: "07/2025",
+    credentialId: "JC2X24GIF30N",
+    description: "Fundamental database concepts and SQL engineering basics."
+  },
+  {
+    id: 11,
+    title: "Flutter and Dart: Developing iOS, Android, and Mobile Apps",
+    issuer: "IBM",
+    date: "07/2025",
+    credentialId: "0CU0A4UC0A50",
+    description: "Expert mobile application development using the Flutter framework."
+  },
+  {
+    id: 12,
+    title: "AI For Everyone",
+    issuer: "DeepLearning.AI",
+    date: "07/2025",
+    credentialId: "NN176LJWXNZZ",
+    description: "Foundational AI concepts and their impact on global technological ecosystems."
   }
 ];
 
