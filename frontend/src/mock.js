@@ -7,7 +7,7 @@ export const personalInfo = {
   tagline: "I engineer intelligent platforms integrating ML, Deep Learning, Flutter, and scalable Web Architecture.",
   description: "As an expert developer, I specialize in building high-performance applications with robust State Management (Riverpod), intelligent AI pipelines using Machine & Deep Learning, and highly scalable web architectures powered by Node.js, React, and Tailwind CSS.",
   experience: "Freelance Professional",
-  location: "Model Town, Sialkot, Pakistan (Available Worldwide)",
+  location: "Punjab, Pakistan",
   availability: "Available for Freelance Projects"
 };
 
