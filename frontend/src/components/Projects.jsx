@@ -76,7 +76,7 @@ const ProjectCard = ({ project, index }) => {
       >
         {/* Image Section */}
         <div 
-          className="relative h-72 sm:h-80 overflow-hidden"
+          className="relative h-60 sm:h-80 overflow-hidden"
           style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d" }}
         >
            <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10 opacity-70 group-hover:opacity-40 transition-opacity"></div>
@@ -84,10 +84,10 @@ const ProjectCard = ({ project, index }) => {
            
            {/* Category Badge */}
            <div 
-             className="absolute top-6 right-6 z-20"
+             className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20"
              style={{ transform: "translateZ(50px)" }}
            >
-              <div className="px-4 py-1.5 glass-dark rounded-full text-[10px] font-black tracking-widest uppercase text-white border-white/20">
+              <div className="px-3 py-1 sm:px-4 sm:py-1.5 glass-dark rounded-full text-[8px] sm:text-[10px] font-black tracking-widest uppercase text-white border-white/20">
                 {project.category}
               </div>
            </div>
@@ -95,29 +95,29 @@ const ProjectCard = ({ project, index }) => {
 
         {/* Content Section */}
         <div 
-          className="p-8 sm:p-10 relative"
+          className="p-6 sm:p-10 relative"
           style={{ transform: "translateZ(40px)", transformStyle: "preserve-3d" }}
         >
-           <div className="flex items-center gap-3 mb-4">
-              <span className="h-px w-8 bg-primary"></span>
-              <span className="text-[10px] font-black tracking-[0.3em] uppercase text-primary">Featured Project</span>
+           <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+              <span className="h-px w-6 sm:w-8 bg-primary"></span>
+              <span className="text-[8px] sm:text-[10px] font-black tracking-[0.2em] sm:tracking-[0.3em] uppercase text-primary">Featured Project</span>
            </div>
            
-           <h3 className="text-3xl sm:text-4xl font-black text-white mb-6 group-hover:text-primary transition-colors duration-500">
+           <h3 className="text-2xl sm:text-4xl font-black text-white mb-4 sm:mb-6 group-hover:text-primary transition-colors duration-500 leading-tight">
              {project.title}
            </h3>
 
-           <div className="space-y-6">
-              <p className="text-gray-400 text-sm leading-relaxed line-clamp-2">
+           <div className="space-y-4 sm:space-y-6">
+              <p className="text-gray-400 text-xs sm:text-sm leading-relaxed line-clamp-2">
                 {project.solution}
               </p>
 
               {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2 pt-2">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1 sm:pt-2">
                 {project.tech.map((tech, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-1.5 bg-white/5 border border-white/10 text-gray-300 text-[10px] font-bold rounded-lg group-hover:border-primary/30 group-hover:text-primary transition-all duration-500"
+                    className="px-2 py-1 sm:px-3 sm:py-1.5 bg-white/5 border border-white/10 text-gray-300 text-[8px] sm:text-[10px] font-bold rounded-lg group-hover:border-primary/30 group-hover:text-primary transition-all duration-500"
                   >
                     {tech}
                   </span>
@@ -125,9 +125,9 @@ const ProjectCard = ({ project, index }) => {
               </div>
 
               {/* Outcome Overlay */}
-              <div className="pt-6 border-t border-white/5 flex flex-col gap-2">
-                 <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Impact</span>
-                 <p className="text-sm font-medium text-white italic">"{project.outcome}"</p>
+              <div className="pt-4 sm:pt-6 border-t border-white/5 flex flex-col gap-1 sm:gap-2">
+                 <span className="text-[8px] sm:text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Impact</span>
+                 <p className="text-xs sm:text-sm font-medium text-white italic leading-snug">"{project.outcome}"</p>
               </div>
            </div>
         </div>
@@ -158,12 +158,12 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-24"
+          className="text-center mb-16 sm:mb-24"
         >
-          <h2 className="text-5xl sm:text-7xl font-black text-white mb-8 tracking-tighter text-gradient">
+          <h2 className="text-4xl sm:text-7xl font-black text-white mb-6 sm:mb-8 tracking-tighter text-gradient">
             Selected <span className="text-primary italic">Works</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto font-medium leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto font-medium leading-relaxed">
             A showcase of production-ready systems, intelligent AI pipelines, and high-performance mobile applications.
           </p>
         </motion.div>
@@ -174,13 +174,13 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-4 mb-20"
+          className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-16 sm:mb-20"
         >
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveFilter(category)}
-              className={`px-8 py-3 rounded-full text-xs font-black tracking-[0.2em] uppercase transition-all duration-500 border ${activeFilter === category
+              className={`px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-[10px] sm:text-xs font-black tracking-[0.2em] uppercase transition-all duration-500 border ${activeFilter === category
                 ? 'bg-primary text-white border-primary shadow-[0_0_25px_rgba(168,85,247,0.5)] scale-105'
                 : 'bg-white/5 text-gray-500 border-white/10 hover:border-white/20 hover:text-white'
                 }`}

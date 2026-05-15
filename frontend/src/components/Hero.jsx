@@ -59,41 +59,41 @@ const Hero = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col items-start text-left"
+          className="flex flex-col items-center lg:items-start text-center lg:text-left"
         >
           {/* Availability Badge */}
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="inline-flex items-center px-4 py-2 glass rounded-full mb-8 shadow-2xl"
+            className="inline-flex items-center px-4 py-2 glass rounded-full mb-6 sm:mb-8 shadow-2xl"
           >
             <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2 shadow-[0_0_12px_rgba(16,185,129,0.8)] animate-pulse"></span>
-            <span className="text-xs font-bold uppercase tracking-widest text-gray-400">{personalInfo.availability}</span>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">{personalInfo.availability}</span>
           </motion.div>
 
           {/* Main Headline */}
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white mb-8 tracking-tighter leading-[0.9] text-gradient">
-            Engineering <br />
-            <span className="text-primary italic">3D-Intelligent</span> <br />
+          <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black text-white mb-6 sm:mb-8 tracking-tighter leading-[1] sm:leading-[0.9] text-gradient">
+            Engineering <br className="hidden sm:block" />
+            <span className="text-primary italic">3D-Intelligent</span> <br className="hidden sm:block" />
             Systems.
           </h1>
 
-          <p className="text-xl sm:text-2xl font-medium text-gray-300 mb-8 max-w-xl leading-relaxed">
+          <p className="text-lg sm:text-2xl font-medium text-gray-300 mb-8 sm:mb-10 max-w-xl leading-relaxed">
             I'm <span className="text-white font-bold tracking-tight">Syed Hyder Abbas</span>, building the next generation of <span className="text-primary font-bold">AI & Mobile Architectures</span> with depth and precision.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
             <Button
               onClick={() => window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}`, '_blank')}
-              className="bg-primary text-white hover:bg-primary/90 transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.7)] duration-300 px-10 py-7 text-lg rounded-full font-bold"
+              className="bg-primary text-white hover:bg-primary/90 transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.7)] duration-300 px-8 sm:px-10 py-6 sm:py-7 text-base sm:text-lg rounded-full font-bold shadow-2xl active:scale-95"
             >
-              Start a Project <ArrowRight className="ml-2" size={20} />
+              Start a Project <ArrowRight className="ml-2" size={18} />
             </Button>
             <Button
               onClick={() => scrollToSection('#projects')}
               variant="outline"
-              className="border-2 border-white/10 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 transition-all duration-300 px-10 py-7 text-lg rounded-full font-bold"
+              className="border-2 border-white/10 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 transition-all duration-300 px-8 sm:px-10 py-6 sm:py-7 text-base sm:text-lg rounded-full font-bold active:scale-95"
             >
               See My Work
             </Button>
@@ -108,18 +108,26 @@ const Hero = () => {
             transformStyle: "preserve-3d",
           }}
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "circOut" }}
-          className="relative flex justify-center items-center"
+          animate={{ 
+            opacity: 1, 
+            scale: 1,
+            y: [0, -10, 0] // Floating effect for mobile
+          }}
+          transition={{ 
+            opacity: { duration: 1 },
+            scale: { duration: 1 },
+            y: { repeat: Infinity, duration: 4, ease: "easeInOut" }
+          }}
+          className="relative flex justify-center items-center mt-12 lg:mt-0"
         >
           {/* Main Glass Frame */}
           <div 
-            className="relative w-full max-w-md aspect-square glass rounded-[3rem] p-1 shadow-[0_50px_100px_rgba(0,0,0,0.5)] overflow-hidden group"
+            className="relative w-full max-w-[280px] sm:max-w-md aspect-square glass rounded-[2.5rem] sm:rounded-[3rem] p-1 shadow-[0_50px_100px_rgba(0,0,0,0.5)] overflow-hidden group"
             style={{ transform: "translateZ(50px)" }}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/20 opacity-50"></div>
             
-            <div className="relative z-10 w-full h-full bg-black/60 backdrop-blur-3xl rounded-[2.8rem] p-8 grid grid-cols-2 gap-6 items-stretch">
+            <div className="relative z-10 w-full h-full bg-black/60 backdrop-blur-3xl rounded-[2.3rem] sm:rounded-[2.8rem] p-6 sm:p-8 grid grid-cols-2 gap-4 sm:gap-6 items-stretch">
               {[
                 { label: 'AI', sub: 'Deep Learning', color: 'primary' },
                 { label: 'APP', sub: 'Flutter Expert', color: 'secondary' },
@@ -129,13 +137,13 @@ const Hero = () => {
                 <motion.div
                   key={idx}
                   whileHover={{ scale: 1.05, translateZ: 30 }}
-                  className="glass-dark rounded-3xl p-6 flex flex-col justify-center items-center group/card transition-all cursor-default border border-white/5 hover:border-primary/30"
+                  className="glass-dark rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col justify-center items-center group/card transition-all cursor-default border border-white/5 hover:border-primary/30"
                   style={{ transformStyle: "preserve-3d" }}
                 >
-                  <div className={`text-4xl font-black text-white mb-2 group-hover/card:text-${item.color}`}>
+                  <div className={`text-2xl sm:text-4xl font-black text-white mb-1 sm:mb-2 group-hover/card:text-${item.color}`}>
                     {item.label}
                   </div>
-                  <div className={`text-[10px] uppercase tracking-[0.2em] font-black text-${item.color}/70 text-center`}>
+                  <div className={`text-[8px] sm:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.2em] font-black text-${item.color}/70 text-center`}>
                     {item.sub}
                   </div>
                 </motion.div>
@@ -143,24 +151,24 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Decorative floating elements with different depths */}
+          {/* Decorative floating elements */}
           <motion.div 
-            animate={{ y: [-15, 15, -15], rotate: [12, 8, 12] }}
+            animate={{ y: [-10, 10, -10], rotate: [12, 8, 12] }}
             transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            className="absolute -top-10 -right-10 w-28 h-28 glass rounded-3xl flex items-center justify-center shadow-2xl z-20"
+            className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 w-20 h-20 sm:w-28 sm:h-28 glass rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-2xl z-20"
             style={{ transform: "translateZ(100px)" }}
           >
-             <div className="text-3xl font-black text-primary">5.0</div>
+             <div className="text-2xl sm:text-3xl font-black text-primary">5.0</div>
           </motion.div>
           
           <motion.div 
-            animate={{ y: [15, -15, 15], rotate: [-12, -8, -12] }}
+            animate={{ y: [10, -10, 10], rotate: [-12, -8, -12] }}
             transition={{ repeat: Infinity, duration: 7, ease: "easeInOut" }}
-            className="absolute -bottom-10 -left-10 w-36 h-36 glass rounded-3xl p-6 flex flex-col justify-center shadow-2xl z-20"
+            className="absolute -bottom-6 -left-6 sm:-bottom-10 sm:-left-10 w-24 h-24 sm:w-36 sm:h-36 glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col justify-center shadow-2xl z-20"
             style={{ transform: "translateZ(80px)" }}
           >
-             <div className="text-xs font-black text-gray-500 uppercase mb-1 tracking-widest">Success</div>
-             <div className="text-2xl font-black text-white">100%</div>
+             <div className="text-[8px] sm:text-xs font-black text-gray-500 uppercase mb-1 tracking-widest text-center sm:text-left">Success</div>
+             <div className="text-lg sm:text-2xl font-black text-white text-center sm:text-left">100%</div>
           </motion.div>
         </motion.div>
 
