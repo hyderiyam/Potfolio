@@ -163,21 +163,23 @@ const Hero = () => {
           {/* Decorative floating elements - Tight Overlap */}
           <motion.div 
             animate={{ y: [-10, 10, -10], rotate: [12, 8, 12] }}
+            whileHover={{ scale: 1.2, rotate: 0, zIndex: 50, transition: { duration: 0.2 } }}
             transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-24 h-24 sm:w-28 sm:h-28 glass rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-2xl z-20 border border-white/20 scale-110"
+            className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-24 h-24 sm:w-28 sm:h-28 glass rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-2xl z-20 border border-white/20 scale-110 cursor-pointer group/badge"
             style={{ transform: "translateZ(120px)" }}
           >
-             <div className="text-3xl sm:text-4xl font-black text-primary drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]">5.0</div>
+             <div className="text-3xl sm:text-4xl font-black text-primary drop-shadow-[0_0_15px_rgba(168,85,247,0.5)] group-hover/badge:drop-shadow-[0_0_25px_rgba(168,85,247,0.8)] transition-all">5.0</div>
           </motion.div>
           
           <motion.div 
             animate={{ y: [10, -10, 10], rotate: [-12, -8, -12] }}
+            whileHover={{ scale: 1.2, rotate: 0, zIndex: 50, transition: { duration: 0.2 } }}
             transition={{ repeat: Infinity, duration: 7, ease: "easeInOut" }}
-            className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-28 h-28 sm:w-36 sm:h-36 glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col justify-center shadow-2xl z-20 border border-white/20 scale-110"
+            className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-28 h-28 sm:w-36 sm:h-36 glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col justify-center shadow-2xl z-20 border border-white/20 scale-110 cursor-pointer group/badge"
             style={{ transform: "translateZ(100px)" }}
           >
              <div className="text-[8px] sm:text-xs font-black text-gray-500 uppercase mb-1 tracking-widest text-center sm:text-left">Success</div>
-             <div className="text-2xl sm:text-3xl font-black text-white text-center sm:text-left">100%</div>
+             <div className="text-2xl sm:text-3xl font-black text-white text-center sm:text-left group-hover/badge:text-primary transition-colors">100%</div>
           </motion.div>
         </motion.div>
 
