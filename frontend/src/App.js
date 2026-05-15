@@ -14,7 +14,8 @@ import Process from './components/Process';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-import CustomCursor from './components/CustomCursor';
+import NeuralBackground from './components/effects/NeuralBackground';
+import CustomCursor from './components/effects/CustomCursor';
 
 function App() {
   useEffect(() => {
@@ -24,11 +25,12 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="App bg-background min-h-screen transition-colors duration-300">
+      <div className="App bg-background min-h-screen transition-colors duration-300 relative">
+        <NeuralBackground />
         <CustomCursor />
         <Header />
 
-        <main>
+        <main className="relative z-10">
           <Hero />
           <Services />
           <Projects />

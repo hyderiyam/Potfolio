@@ -5,7 +5,13 @@ import * as LucideIcons from 'lucide-react';
 import { ArrowRight, Mail, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+import { fireConfetti } from '../lib/confetti';
+
 const Contact = () => {
+  const handleGetInTouch = (e) => {
+    fireConfetti();
+  };
+
   return (
     <section id="contact" className="py-24 sm:py-32 px-4 sm:px-6 bg-[#030014] relative overflow-hidden">
 
@@ -35,7 +41,10 @@ const Contact = () => {
             rel="noopener noreferrer"
             className="inline-block relative z-10"
           >
-            <Button className="bg-primary text-white hover:bg-primary/90 transition-all hover:scale-105 duration-300 px-8 py-6 sm:px-10 sm:py-7 text-lg rounded-full font-bold shadow-[0_0_20px_rgba(168,85,247,0.4)]">
+            <Button 
+              onClick={handleGetInTouch}
+              className="bg-primary text-white hover:bg-primary/90 transition-all hover:scale-105 duration-300 px-8 py-6 sm:px-10 sm:py-7 text-lg rounded-full font-bold shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+            >
               <Mail className="mr-2" size={24} />
               Get In Touch
               <ArrowRight className="ml-2" size={24} />

@@ -3,6 +3,8 @@ import { personalInfo, contact } from '../mock';
 import { Button } from './ui/button';
 import { ArrowRight } from 'lucide-react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
+import MatrixText from './effects/MatrixText';
+import { fireConfetti } from '../lib/confetti';
 
 const Hero = () => {
   const x = useMotionValue(0);
@@ -36,6 +38,13 @@ const Hero = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleStartProject = () => {
+    fireConfetti();
+    setTimeout(() => {
+      window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}`, '_blank');
+    }, 500);
   };
 
   return (
@@ -75,17 +84,17 @@ const Hero = () => {
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black text-white mb-6 sm:mb-8 tracking-tighter leading-[1] sm:leading-[0.9] text-gradient">
             Engineering <br className="hidden sm:block" />
-            <span className="text-primary italic">3D-Intelligent</span> <br className="hidden sm:block" />
+            <MatrixText text="3D-Intelligent" className="text-primary italic" /> <br className="hidden sm:block" />
             Systems.
           </h1>
 
           <p className="text-lg sm:text-2xl font-medium text-gray-300 mb-8 sm:mb-10 max-w-xl leading-relaxed">
-            I'm <span className="text-white font-bold tracking-tight">Syed Hyder Abbas</span>, building the next generation of <span className="text-primary font-bold">AI & Mobile Architectures</span> with depth and precision.
+            I'm <MatrixText text="Syed Hyder Abbas" className="text-white font-bold tracking-tight" />, building the next generation of <span className="text-primary font-bold">AI & Mobile Architectures</span> with depth and precision.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
             <Button
-              onClick={() => window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}`, '_blank')}
+              onClick={handleStartProject}
               className="bg-primary text-white hover:bg-primary/90 transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.7)] duration-300 px-8 sm:px-10 py-6 sm:py-7 text-base sm:text-lg rounded-full font-bold shadow-2xl active:scale-95"
             >
               Start a Project <ArrowRight className="ml-2" size={18} />
