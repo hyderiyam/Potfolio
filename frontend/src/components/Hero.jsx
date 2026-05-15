@@ -164,7 +164,7 @@ const Hero = () => {
           <motion.div 
             animate={{ y: [-10, 10, -10], rotate: [12, 8, 12] }}
             transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 w-20 h-20 sm:w-28 sm:h-28 glass rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-2xl z-20"
+            className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-20 h-20 sm:w-24 sm:h-24 glass rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-2xl z-20 border border-white/10"
             style={{ transform: "translateZ(100px)" }}
           >
              <div className="text-2xl sm:text-3xl font-black text-primary">5.0</div>
@@ -173,7 +173,7 @@ const Hero = () => {
           <motion.div 
             animate={{ y: [10, -10, 10], rotate: [-12, -8, -12] }}
             transition={{ repeat: Infinity, duration: 7, ease: "easeInOut" }}
-            className="absolute -bottom-6 -left-6 sm:-bottom-10 sm:-left-10 w-24 h-24 sm:w-36 sm:h-36 glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col justify-center shadow-2xl z-20"
+            className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 w-24 h-24 sm:w-32 sm:h-32 glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col justify-center shadow-2xl z-20 border border-white/10"
             style={{ transform: "translateZ(80px)" }}
           >
              <div className="text-[8px] sm:text-xs font-black text-gray-500 uppercase mb-1 tracking-widest text-center sm:text-left">Success</div>
