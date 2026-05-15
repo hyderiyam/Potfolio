@@ -33,7 +33,7 @@ const Contact = () => {
             Let's Build Your <span className="text-primary italic">Product</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-medium relative z-10">
-            Have a project in mind? I'm available for freelance work and ready to turn your vision into reality.
+            Have a project in mind? We are available for large-scale engineering projects and ready to turn your vision into reality.
           </p>
           <a
             href={`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}`}
@@ -67,7 +67,7 @@ const Contact = () => {
             <div className="w-14 h-14 bg-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.1)]">
               <Mail className="text-primary w-7 h-7" />
             </div>
-            <span className="text-[10px] font-black text-gray-400 mb-1 tracking-widest uppercase">Email</span>
+            <span className="text-[10px] font-black text-gray-400 mb-1 tracking-widest uppercase">Email Us</span>
             <span className="text-sm text-gray-300 font-bold group-hover:text-white transition-colors">{contact.email}</span>
           </motion.a>
 
@@ -82,7 +82,7 @@ const Contact = () => {
             <div className="w-14 h-14 bg-secondary/10 border border-secondary/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-secondary/20 transition-all duration-300 shadow-[0_0_15px_rgba(79,70,229,0.1)]">
               <Phone className="text-secondary w-7 h-7" />
             </div>
-            <span className="text-[10px] font-black text-gray-400 mb-1 tracking-widest uppercase">Phone</span>
+            <span className="text-[10px] font-black text-gray-400 mb-1 tracking-widest uppercase">Call Us</span>
             <span className="text-sm text-gray-300 font-bold group-hover:text-white transition-colors">{contact.phone}</span>
           </motion.a>
 

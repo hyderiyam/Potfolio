@@ -4,24 +4,24 @@ export const personalInfo = {
   name: "Syed Hyder Abbas",
   username: "SyedHyderAbbas",
   title: "AI, Mobile & Full-Stack Architect",
-  tagline: "I engineer intelligent platforms integrating ML, Deep Learning, Flutter, and scalable Web Architecture.",
-  description: "As an expert developer, I specialize in building high-performance applications with robust State Management (Riverpod), intelligent AI pipelines using Machine & Deep Learning, and highly scalable web architectures powered by Node.js, React, and Tailwind CSS.",
-  experience: "Freelance Professional",
+  tagline: "We engineer intelligent platforms integrating ML, Deep Learning, Flutter, and scalable Web Architecture.",
+  description: "As an elite engineering collective, we specialize in building high-performance applications with robust State Management (Riverpod), intelligent AI pipelines using Machine & Deep Learning, and highly scalable web architectures powered by Node.js, React, and Tailwind CSS.",
+  experience: "Elite Engineering Team",
   location: "Punjab, Pakistan",
-  availability: "Available for Freelance Projects"
+  availability: "Available for Team-Scale Projects"
 };
 
 export const about = {
-  story: `Hi, I’m Syed Hyder, an AI, Mobile App, and Full-Stack Engineer.
+  story: `At Syed Hyder Abbas, we are a specialized collective of AI, Mobile App, and Full-Stack Engineers.
 
-I specialize in integrating cutting-edge machine learning and deep learning models into production applications. On the mobile front, I build high-performance, fluid cross-platform apps using Flutter combined with advanced state management like Riverpod and Bloc.
+We specialize in integrating cutting-edge machine learning and deep learning models into production-grade applications. Our mobile unit builds high-performance, fluid cross-platform apps using Flutter combined with advanced state management like Riverpod and Bloc.
 
-On the web, I architect scalable backends and intelligent APIs using Node.js and Laravel, paired with stunning, highly-responsive frontends using React and Tailwind CSS. My approach combines creative problem-solving with rigorous technical execution to deliver solutions that are not only functional but highly attractive and professional.`,
+On the web, we architect scalable backends and intelligent APIs using Node.js and Laravel, paired with stunning, highly-responsive frontends using React and Tailwind CSS. Our team's approach combines collective problem-solving with rigorous technical execution to deliver enterprise-grade solutions that are high-performance, attractive, and trusted by clients worldwide.`,
   highlights: [
-    "Expert in Machine Learning & Deep Learning integrations",
-    "Advanced Flutter Development & State Management (Riverpod)",
-    "Scalable Web Architecture using Node.js, React & Tailwind",
-    "Reliable engineering partner for end-to-end AI applications"
+    "Specialized collective for ML & Deep Learning integrations",
+    "High-Performance Flutter Unit & State Management (Riverpod)",
+    "Scalable Web Architecture Team using Node.js, React & Tailwind",
+    "Full-cycle engineering partners for end-to-end AI applications"
   ]
 };
 
@@ -305,7 +305,7 @@ export const process = [
   {
     id: 1,
     title: "Discovery & Planning",
-    description: "I start by understanding your business goals and technical requirements to architect the perfect mobile or web solution."
+    description: "We start by understanding your business goals and technical requirements to architect the perfect mobile or web solution."
   },
   {
     id: 2,
@@ -320,7 +320,7 @@ export const process = [
   {
     id: 4,
     title: "Deployment & Support",
-    description: "I handle App Store, Play Store, and web server deployments, ensuring smooth operations post-launch."
+    description: "Our team handles App Store, Play Store, and web server deployments, ensuring smooth operations post-launch."
   }
 ];
 
