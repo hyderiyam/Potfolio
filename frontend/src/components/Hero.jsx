@@ -83,13 +83,13 @@ const Hero = () => {
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black text-white mb-6 sm:mb-8 tracking-tighter leading-[1] sm:leading-[0.9] text-gradient">
-            Engineering <br className="hidden sm:block" />
-            <MatrixText text="3D-Intelligent" className="text-primary italic" /> <br className="hidden sm:block" />
-            Systems.
+            Architecting <br className="hidden sm:block" />
+            <span className="text-primary italic">the Future of</span> <br className="hidden sm:block" />
+            Intelligent Systems.
           </h1>
 
           <p className="text-lg sm:text-2xl font-medium text-gray-300 mb-8 sm:mb-10 max-w-xl leading-relaxed">
-            I'm <MatrixText text="Syed Hyder Abbas" className="text-white font-bold tracking-tight" />, building the next generation of <span className="text-primary font-bold">AI & Mobile Architectures</span> with depth and precision.
+            I'm <span className="text-white font-bold tracking-tight">Syed Hyder Abbas</span>, building the next generation of <span className="text-primary font-bold">AI & Mobile Architectures</span> with depth and precision.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
