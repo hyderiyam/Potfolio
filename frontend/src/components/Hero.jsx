@@ -1,3 +1,7 @@
+import React from 'react';
+import { personalInfo, contact } from '../mock';
+import { Button } from './ui/button';
+import { ArrowRight } from 'lucide-react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 
 const Hero = () => {
