@@ -160,20 +160,21 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Decorative floating elements - Tight Overlap */}
+          {/* Decorative floating elements - Swapped Positions */}
           <motion.div 
             animate={{ y: [-10, 10, -10], rotate: [12, 8, 12] }}
             whileHover={{ scale: 1.1, rotate: 0, zIndex: 50 }}
             transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-24 h-24 sm:w-28 sm:h-28 glass rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-2xl z-20 border border-white/20 scale-110 cursor-pointer group/badge"
+            className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-28 h-28 sm:w-36 sm:h-36 glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col justify-center shadow-2xl z-20 border border-white/20 scale-110 cursor-pointer group/badge"
             style={{ transform: "translateZ(120px)" }}
           >
-             <div className="text-3xl sm:text-4xl font-black text-primary drop-shadow-[0_0_15px_rgba(168,85,247,0.5)] group-hover/badge:drop-shadow-[0_0_25px_rgba(168,85,247,0.8)] transition-all">5.0</div>
+             <div className="text-[8px] sm:text-xs font-black text-gray-500 uppercase mb-1 tracking-widest text-center sm:text-left">Success</div>
+             <div className="text-2xl sm:text-3xl font-black text-white text-center sm:text-left group-hover/badge:text-primary transition-colors">100%</div>
              
-             {/* Expansion Card */}
-             <div className="absolute top-0 right-[115%] w-52 p-4 bg-black/80 backdrop-blur-xl rounded-2xl opacity-0 group-hover/badge:opacity-100 translate-x-4 group-hover/badge:translate-x-0 transition-all duration-300 pointer-events-none border border-primary/40 shadow-[0_0_40px_rgba(168,85,247,0.3)] z-[100]">
-                <div className="text-[10px] font-black text-primary uppercase mb-1 tracking-widest">Elite Global Rating</div>
-                <div className="text-[11px] text-gray-200 leading-relaxed font-bold">Verified across 50+ high-end AI projects. Consistently rated 5-stars for architectural precision.</div>
+             {/* Expansion Card (Top Right -> Slides Left) */}
+             <div className="absolute top-0 right-[115%] w-56 p-4 bg-black/80 backdrop-blur-xl rounded-2xl opacity-0 group-hover/badge:opacity-100 translate-x-4 group-hover/badge:translate-x-0 transition-all duration-300 pointer-events-none border border-secondary/40 shadow-[0_0_40px_rgba(99,102,241,0.3)] z-[100]">
+                <div className="text-[10px] font-black text-secondary uppercase mb-1 tracking-widest">Zero-Defect Record</div>
+                <div className="text-[11px] text-gray-200 leading-relaxed font-bold">100% On-Time Delivery. Every line of code is stress-tested for enterprise-grade stability.</div>
              </div>
           </motion.div>
           
@@ -181,16 +182,15 @@ const Hero = () => {
             animate={{ y: [10, -10, 10], rotate: [-12, -8, -12] }}
             whileHover={{ scale: 1.1, rotate: 0, zIndex: 50 }}
             transition={{ repeat: Infinity, duration: 7, ease: "easeInOut" }}
-            className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-28 h-28 sm:w-36 sm:h-36 glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col justify-center shadow-2xl z-20 border border-white/20 scale-110 cursor-pointer group/badge"
+            className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-24 h-24 sm:w-28 sm:h-28 glass rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-2xl z-20 border border-white/20 scale-110 cursor-pointer group/badge"
             style={{ transform: "translateZ(100px)" }}
           >
-             <div className="text-[8px] sm:text-xs font-black text-gray-500 uppercase mb-1 tracking-widest text-center sm:text-left">Success</div>
-             <div className="text-2xl sm:text-3xl font-black text-white text-center sm:text-left group-hover/badge:text-primary transition-colors">100%</div>
+             <div className="text-3xl sm:text-4xl font-black text-primary drop-shadow-[0_0_15px_rgba(168,85,247,0.5)] group-hover/badge:drop-shadow-[0_0_25px_rgba(168,85,247,0.8)] transition-all">5.0</div>
 
-             {/* Expansion Card */}
-             <div className="absolute bottom-0 left-[115%] w-56 p-4 bg-black/80 backdrop-blur-xl rounded-2xl opacity-0 group-hover/badge:opacity-100 -translate-x-4 group-hover/badge:translate-x-0 transition-all duration-300 pointer-events-none border border-secondary/40 shadow-[0_0_40px_rgba(99,102,241,0.3)] z-[100]">
-                <div className="text-[10px] font-black text-secondary uppercase mb-1 tracking-widest">Zero-Defect Record</div>
-                <div className="text-[11px] text-gray-200 leading-relaxed font-bold">100% On-Time Delivery. Every line of code is stress-tested for enterprise-grade stability.</div>
+             {/* Expansion Card (Bottom Left -> Slides Right) */}
+             <div className="absolute bottom-0 left-[115%] w-52 p-4 bg-black/80 backdrop-blur-xl rounded-2xl opacity-0 group-hover/badge:opacity-100 -translate-x-4 group-hover/badge:translate-x-0 transition-all duration-300 pointer-events-none border border-primary/40 shadow-[0_0_40px_rgba(168,85,247,0.3)] z-[100]">
+                <div className="text-[10px] font-black text-primary uppercase mb-1 tracking-widest">Elite Global Rating</div>
+                <div className="text-[11px] text-gray-200 leading-relaxed font-bold">Verified across 50+ high-end AI projects. Consistently rated 5-stars for architectural precision.</div>
              </div>
           </motion.div>
         </motion.div>
