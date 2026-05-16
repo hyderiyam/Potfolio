@@ -16,6 +16,7 @@ import Footer from './components/Footer';
 
 import NeuralBackground from './components/effects/NeuralBackground';
 import CustomCursor from './components/effects/CustomCursor';
+import ScrollProgress from './components/effects/ScrollProgress';
 
 function App() {
   useEffect(() => {
@@ -27,6 +28,7 @@ function App() {
     <ThemeProvider>
       <div className="App bg-background min-h-screen transition-colors duration-300 relative">
         <NeuralBackground />
+        <ScrollProgress />
         <CustomCursor />
         <Header />
 

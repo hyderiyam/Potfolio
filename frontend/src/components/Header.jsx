@@ -42,15 +42,25 @@ const Header = () => {
           ? 'glass shadow-[0_0_50px_rgba(0,0,0,0.5)] border-white/10 py-3' 
           : 'bg-transparent border-transparent py-5'}`}
         >
-          {/* Logo */}
-          <a
-            href="#hero"
-            onClick={(e) => scrollToSection(e, '#hero')}
-            className="text-xl sm:text-2xl font-black text-white hover:opacity-80 transition-opacity tracking-tighter flex items-center gap-1 group whitespace-nowrap"
-          >
-            <span className="text-primary group-hover:rotate-12 transition-transform inline-block">Syed</span>
-            <span>Hyder Abbas</span>
-          </a>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+            <a
+              href="#hero"
+              onClick={(e) => scrollToSection(e, '#hero')}
+              className="text-xl sm:text-2xl font-black text-white hover:opacity-80 transition-opacity tracking-tighter flex items-center gap-1 group whitespace-nowrap"
+            >
+              <span className="text-primary group-hover:rotate-12 transition-transform inline-block">Syed</span>
+              <span>Hyder Abbas</span>
+            </a>
+            
+            {/* Operational Status */}
+            <div className="hidden lg:flex items-center gap-2 px-3 py-1 bg-emerald-500/5 border border-emerald-500/20 rounded-full">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span className="text-[9px] font-black tracking-[0.2em] text-emerald-500 uppercase">Systems: Operational</span>
+            </div>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center bg-white/5 backdrop-blur-md border border-white/5 px-2 py-1 rounded-full">

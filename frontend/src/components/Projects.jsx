@@ -72,8 +72,18 @@ const ProjectCard = ({ project, index }) => {
           rotateY,
           transformStyle: "preserve-3d",
         }}
-        className="relative h-full glass rounded-[2.5rem] overflow-hidden transition-all duration-300 border-white/5 group-hover:border-primary/30 shadow-2xl"
+        className="relative h-full glass rounded-[2.5rem] overflow-hidden transition-all duration-300 border-white/5 group-hover:border-primary/30 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)] group-hover:shadow-primary/20"
       >
+        {/* Dynamic Sheen/Reflection */}
+        <motion.div
+          className="absolute inset-0 z-50 pointer-events-none transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+          style={{
+            background: useTransform(
+              [mouseXSpring, mouseYSpring],
+              ([x, y]) => `radial-gradient(circle at ${x * 100 + 50}% ${y * 100 + 50}%, rgba(255,255,255,0.1) 0%, transparent 80%)`
+            ),
+          }}
+        />
         {/* Image Section */}
         <div 
           className="relative h-60 sm:h-80 overflow-hidden"
