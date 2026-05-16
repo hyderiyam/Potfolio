@@ -187,8 +187,8 @@ const Hero = () => {
              <div className="text-[8px] sm:text-xs font-black text-gray-500 uppercase mb-1 tracking-widest text-center sm:text-left">Success</div>
              <div className="text-2xl sm:text-3xl font-black text-white text-center sm:text-left group-hover/badge:text-primary transition-colors">100%</div>
 
-             {/* Expansion Card - Moved to Top for visibility */}
-             <div className="absolute bottom-[120%] left-0 w-56 p-4 bg-black/90 backdrop-blur-2xl rounded-2xl opacity-0 group-hover/badge:opacity-100 translate-y-4 group-hover/badge:translate-y-0 transition-all duration-300 pointer-events-none border border-secondary/40 shadow-[0_-10px_40px_rgba(99,102,241,0.3)] z-[100]">
+             {/* Expansion Card - Moved to Left to avoid console overlap */}
+             <div className="absolute top-0 right-[115%] w-56 p-4 bg-black/90 backdrop-blur-2xl rounded-2xl opacity-0 group-hover/badge:opacity-100 translate-x-4 group-hover/badge:translate-x-0 transition-all duration-300 pointer-events-none border border-secondary/40 shadow-[-10px_0_40px_rgba(99,102,241,0.3)] z-[100]">
                 <div className="text-[10px] font-black text-secondary uppercase mb-1 tracking-widest">Zero-Defect Record</div>
                 <div className="text-[11px] text-gray-100 leading-relaxed font-bold italic">"100% On-Time Delivery. Every line of code is stress-tested for enterprise-grade stability."</div>
              </div>
