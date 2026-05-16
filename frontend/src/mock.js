@@ -325,7 +325,7 @@ export const process = [
 ];
 
 export const contact = {
-  email: "abbashyder9908@gmail.com",
+  email: "syedhyderabbasdev@gmail.com",
   phone: "+92 328 7172397",
   whatsapp: "+923287172397",
   social: [
