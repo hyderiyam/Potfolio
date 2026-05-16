@@ -42,6 +42,7 @@ const Header = () => {
           ? 'glass shadow-[0_0_50px_rgba(0,0,0,0.5)] border-white/10 py-3' 
           : 'bg-transparent border-transparent py-5'}`}
         >
+          {/* Logo */}
           <a
             href="#hero"
             onClick={(e) => scrollToSection(e, '#hero')}
