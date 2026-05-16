@@ -37,7 +37,14 @@
         --ring: 271 91% 65%;
 
         --radius: 1rem;
-    }
+      @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+}
 
     body {
         @apply bg-[#030014] text-foreground antialiased selection:bg-primary/30 selection:text-white;

@@ -74,6 +74,12 @@ const ProjectCard = ({ project, index }) => {
         }}
         className="relative h-full glass rounded-[2.5rem] overflow-hidden transition-all duration-300 border-white/5 group-hover:border-primary/30 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)] group-hover:shadow-primary/20"
       >
+        {/* Laser Racing Border */}
+        <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+           <div className="absolute inset-[-2px] bg-gradient-to-r from-primary via-purple-400 to-secondary animate-spin-slow opacity-50 blur-sm"></div>
+           <div className="absolute inset-[1px] bg-black/90 rounded-[2.5rem]"></div>
+        </div>
+
         {/* Dynamic Sheen/Reflection */}
         <motion.div
           className="absolute inset-0 z-50 pointer-events-none transition-opacity duration-300 opacity-0 group-hover:opacity-100"
