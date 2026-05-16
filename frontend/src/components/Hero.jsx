@@ -171,10 +171,9 @@ const Hero = () => {
              <div className="text-3xl sm:text-4xl font-black text-primary drop-shadow-[0_0_15px_rgba(168,85,247,0.5)] group-hover/badge:drop-shadow-[0_0_25px_rgba(168,85,247,0.8)] transition-all">5.0</div>
              
              {/* Expansion Card */}
-             <div className="absolute top-1/2 -translate-y-1/2 right-[115%] w-56 p-5 glass-dark rounded-3xl opacity-0 group-hover/badge:opacity-100 translate-x-4 group-hover/badge:translate-x-0 transition-all duration-500 pointer-events-none border-2 border-primary/30 shadow-[0_0_40px_rgba(168,85,247,0.3)] backdrop-blur-2xl z-50">
-                <div className="text-[11px] font-black text-primary uppercase mb-2 tracking-[0.2em]">Elite Global Rating</div>
-                <div className="text-[10px] text-gray-300 leading-relaxed font-semibold">Verified across 50+ high-end AI architectures. Consistently rated 5-stars for technical precision.</div>
-                <div className="absolute top-1/2 -right-2 -translate-y-1/2 w-4 h-4 bg-primary/20 rotate-45 border-r-2 border-t-2 border-primary/30 backdrop-blur-2xl"></div>
+             <div className="absolute top-0 right-[115%] w-52 p-4 bg-black/80 backdrop-blur-xl rounded-2xl opacity-0 group-hover/badge:opacity-100 translate-x-4 group-hover/badge:translate-x-0 transition-all duration-300 pointer-events-none border border-primary/40 shadow-[0_0_40px_rgba(168,85,247,0.3)] z-[100]">
+                <div className="text-[10px] font-black text-primary uppercase mb-1 tracking-widest">Elite Global Rating</div>
+                <div className="text-[11px] text-gray-200 leading-relaxed font-bold">Verified across 50+ high-end AI projects. Consistently rated 5-stars for architectural precision.</div>
              </div>
           </motion.div>
           
@@ -189,10 +188,9 @@ const Hero = () => {
              <div className="text-2xl sm:text-3xl font-black text-white text-center sm:text-left group-hover/badge:text-primary transition-colors">100%</div>
 
              {/* Expansion Card */}
-             <div className="absolute top-1/2 -translate-y-1/2 left-[115%] w-60 p-5 glass-dark rounded-3xl opacity-0 group-hover/badge:opacity-100 -translate-x-4 group-hover/badge:translate-x-0 transition-all duration-500 pointer-events-none border-2 border-secondary/30 shadow-[0_0_40px_rgba(99,102,241,0.3)] backdrop-blur-2xl z-50">
-                <div className="text-[11px] font-black text-secondary uppercase mb-2 tracking-[0.2em]">Zero-Defect Record</div>
-                <div className="text-[10px] text-gray-300 leading-relaxed font-semibold">100% On-Time Delivery. Every line of code is stress-tested for enterprise-grade performance.</div>
-                <div className="absolute top-1/2 -left-2 -translate-y-1/2 w-4 h-4 bg-secondary/20 rotate-45 border-l-2 border-b-2 border-secondary/30 backdrop-blur-2xl"></div>
+             <div className="absolute bottom-0 left-[115%] w-56 p-4 bg-black/80 backdrop-blur-xl rounded-2xl opacity-0 group-hover/badge:opacity-100 -translate-x-4 group-hover/badge:translate-x-0 transition-all duration-300 pointer-events-none border border-secondary/40 shadow-[0_0_40px_rgba(99,102,241,0.3)] z-[100]">
+                <div className="text-[10px] font-black text-secondary uppercase mb-1 tracking-widest">Zero-Defect Record</div>
+                <div className="text-[11px] text-gray-200 leading-relaxed font-bold">100% On-Time Delivery. Every line of code is stress-tested for enterprise-grade stability.</div>
              </div>
           </motion.div>
         </motion.div>
