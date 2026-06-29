@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Brain, Code, ShieldCheck, Rocket, Cpu } from 'lucide-react';
+import { Brain, Code, ShieldCheck, Rocket } from 'lucide-react';
 
 const steps = [
   {
@@ -9,7 +9,19 @@ const steps = [
     description: 'We analyze your requirements, align business goals, and establish a robust technical blueprint.',
     icon: Brain,
     color: '#A855F7', // Purple
-    laserPath: 'M 150,300 C 280,300 350,75 500,75'
+    laserPath: 'M 150,300 C 280,300 350,75 500,75',
+    telemetryTop: [
+      'SYS_PHASE: 01_DISCOVERY',
+      'FOCUS: REQUIREMENT_ALIGN',
+      'METRIC: RISK_MINIMIZATION',
+      'TARGET: PROJECT_SCOPE'
+    ],
+    telemetryBottom: [
+      'ANALYTIC_SYS: AGENTIC_AI',
+      'DOC_FORMAT: BLUEPRINT',
+      'TOOLS: FIGMA_MIRO',
+      'PLANNING: COMPREHENSIVE'
+    ]
   },
   {
     id: '02',
@@ -17,7 +29,19 @@ const steps = [
     description: 'Writing clean, modular code in rapid iterations. You get weekly updates and responsive adjustments.',
     icon: Code,
     color: '#6366F1', // Indigo
-    laserPath: 'M 150,300 C 250,300 350,225 500,225'
+    laserPath: 'M 150,300 C 250,300 350,225 500,225',
+    telemetryTop: [
+      'SYS_PHASE: 02_DEVELOPMENT',
+      'ENGINE: FLUTTER_REACT',
+      'METHODOLOGY: RAPID_SPRINT',
+      'TARGET: MODULAR_CODE'
+    ],
+    telemetryBottom: [
+      'STATE_MGMT: RIVERPOD_BLOC',
+      'COMPILER: DART_V8_JIT',
+      'CODE_LINT: AUTOMATED',
+      'VELOCITY: SCALED_AGILE'
+    ]
   },
   {
     id: '03',
@@ -25,7 +49,19 @@ const steps = [
     description: 'Executing unit, integration, and manual test suites to deliver a highly secure, crash-free product.',
     icon: ShieldCheck,
     color: '#EC4899', // Pink
-    laserPath: 'M 150,300 C 250,300 350,375 500,375'
+    laserPath: 'M 150,300 C 250,300 350,375 500,375',
+    telemetryTop: [
+      'SYS_PHASE: 03_QUALITY_ASSUR',
+      'COVERAGE: UNIT_INTEGRATION',
+      'TESTS_RUN: PIPELINE_AUTO',
+      'TARGET: ZERO_CRASH'
+    ],
+    telemetryBottom: [
+      'BUGS_FIXED: 100%_RESOLVED',
+      'STABILITY: REINFORCED',
+      'SEC_COMPLIANCE: VERIFIED',
+      'RELEASE: PRODUCTION_READY'
+    ]
   },
   {
     id: '04',
@@ -33,7 +69,19 @@ const steps = [
     description: 'Configuring servers, deploying to app stores, setting up SSL/DNS, and monitoring post-launch operations.',
     icon: Rocket,
     color: '#06B6D4', // Cyan
-    laserPath: 'M 150,300 C 280,300 350,525 500,525'
+    laserPath: 'M 150,300 C 280,300 350,525 500,525',
+    telemetryTop: [
+      'SYS_PHASE: 04_DEPLOY_LAUNCH',
+      'PLATFORMS: STORES_CLOUD',
+      'CI_CD_SYS: GITHUB_ACTIONS',
+      'TARGET: 100%_UPTIME'
+    ],
+    telemetryBottom: [
+      'SSL_TUNNEL: SECURE_HTTPS',
+      'DNS_ROUTING: CONFIGURED',
+      'TELEMETRY: LIVE_MONITOR',
+      'DOWNTIME_EST: 0.00%'
+    ]
   }
 ];
 
@@ -276,21 +324,36 @@ const Process = () => {
               </AnimatePresence>
             </div>
 
-            {/* Futuristic floating readout coordinates */}
-            <div className="absolute left-[10px] top-[140px] font-mono text-[9px] text-gray-600 space-y-1">
-              <div>CORE_STATUS: ONLINE</div>
-              <div>POWER_INPUT: {(activeIndex + 1) * 25}%</div>
-              <div>SECTOR: 0x{activeIndex}F4D</div>
-              <div style={{ color: activeStep.color, transition: 'color 0.5s' }}>
-                ACTIVE_SYS: {activeStep.title.toUpperCase().replace('&', '_')}
-              </div>
+            {/* Futuristic floating readout coordinates (DYNAMIC Top Block) */}
+            <div className="absolute left-[10px] top-[140px] font-mono text-[9px] space-y-1 select-none">
+              {activeStep.telemetryTop.map((item, idx) => (
+                <div 
+                  key={idx} 
+                  style={{
+                    color: idx === 0 ? activeStep.color : 'rgba(156, 163, 175, 0.45)',
+                    transition: 'color 0.4s ease',
+                    textShadow: idx === 0 ? `0 0 6px ${activeStep.color}50` : 'none'
+                  }}
+                >
+                  {item}
+                </div>
+              ))}
             </div>
 
-            <div className="absolute left-[20px] bottom-[140px] font-mono text-[9px] text-gray-600 space-y-1">
-              <div>SYS_GRID_VAL: 104.99</div>
-              <div>TRANS_COORD_Y: 300px</div>
-              <div>TRANS_COORD_X: 150px</div>
-              <div>BEZIER_C1: SMOOTH</div>
+            {/* Futuristic floating readout coordinates (DYNAMIC Bottom Block) */}
+            <div className="absolute left-[20px] bottom-[140px] font-mono text-[9px] space-y-1 select-none">
+              {activeStep.telemetryBottom.map((item, idx) => (
+                <div 
+                  key={idx} 
+                  style={{
+                    color: idx === 2 ? activeStep.color : 'rgba(156, 163, 175, 0.45)',
+                    transition: 'color 0.4s ease',
+                    textShadow: idx === 2 ? `0 0 6px ${activeStep.color}50` : 'none'
+                  }}
+                >
+                  {item}
+                </div>
+              ))}
             </div>
           </div>
 
