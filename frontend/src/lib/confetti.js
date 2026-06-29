@@ -21,7 +21,7 @@ export const fireConfetti = () => {
       ...defaults,
       particleCount,
       origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-      colors: ['#a855f7', '#6366f1', '#ffffff']
+      colors: ['#a855f7', '#6366f1', '#a90000ff']
     });
     confetti({
       ...defaults,
