@@ -53,6 +53,18 @@ const getIssuerLogo = (issuer) => {
   return companyLogos.hci;
 };
 
+const getIssuerName = (issuer) => {
+  if (!issuer) return 'DEVX';
+  const name = issuer.toLowerCase();
+  if (name.includes('cisco')) return 'CISCO';
+  if (name.includes('github')) return 'GITHUB';
+  if (name.includes('google')) return 'GOOGLE';
+  if (name.includes('meta')) return 'META';
+  if (name.includes('hec') || name.includes('higher education') || name.includes('commission')) return 'HEC';
+  if (name.includes('hci') || name.includes('workshop')) return 'HCI DEV';
+  return issuer.toUpperCase();
+};
+
 const Certifications = () => {
   return (
     <section id="certifications" className="py-32 px-4 sm:px-6 bg-[#030014] relative overflow-hidden bg-grid">
@@ -99,6 +111,7 @@ const Certifications = () => {
                         <div className="t-header">
                           <div className="t-logo">
                             {getIssuerLogo(cert.issuer)}
+                            <span className="logo-text">{getIssuerName(cert.issuer)}</span>
                           </div>
                           <div className="t-type">Verifiable</div>
                         </div>
@@ -269,7 +282,16 @@ const StyledWrapper = styled.div`
   .t-logo {
     display: flex;
     align-items: center;
+    gap: 0.6em;
     height: 2.5em;
+    color: #fff;
+    font-weight: 900;
+    font-size: 1.2em;
+    letter-spacing: -0.01em;
+  }
+
+  .t-logo .logo-text {
+    text-transform: uppercase;
     color: #fff;
   }
 
