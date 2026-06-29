@@ -76,7 +76,7 @@ const Header = () => {
                 boxShadow: '0 0 20px rgba(168,85,247,0.45)',
               }}
             >
-              <span className="text-white font-black text-sm select-none">L</span>
+              <span className="text-white font-black text-sm select-none">S</span>
             </div>
             <motion.span
               animate={{ opacity: isExpanded ? 1 : 0, x: isExpanded ? 0 : -6 }}
@@ -84,7 +84,7 @@ const Header = () => {
               className="text-white font-black text-sm tracking-tight whitespace-nowrap"
               style={{ pointerEvents: isExpanded ? 'auto' : 'none' }}
             >
-              Loops Limited
+              Syed Hyder Abbas
             </motion.span>
           </a>
 
@@ -228,9 +228,9 @@ const MobileNav = () => {
             className="w-8 h-8 rounded-full flex items-center justify-center"
             style={{ background: 'linear-gradient(135deg, #A855F7, #6366F1)' }}
           >
-            <span className="text-white font-black text-xs">L</span>
+            <span className="text-white font-black text-xs">S</span>
           </div>
-          <span className="text-white font-black text-sm tracking-tight">Loops Limited</span>
+          <span className="text-white font-black text-sm tracking-tight">Syed Hyder Abbas</span>
         </a>
         <button
           onClick={() => setIsOpen(!isOpen)}
