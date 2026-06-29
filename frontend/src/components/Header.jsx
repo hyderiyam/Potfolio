@@ -1,128 +1,293 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { Button } from './ui/button';
+import {
+  Home, Briefcase, FolderOpen, Cpu, Award, User, Mail,
+  Layers, ChevronLeft, Menu, X
+} from 'lucide-react';
 import { contact } from '../mock';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const navItems = [
+  { label: 'Home',           href: '#hero',           icon: Home },
+  { label: 'Services',       href: '#services',       icon: Briefcase },
+  { label: 'Projects',       href: '#projects',       icon: FolderOpen },
+  { label: 'Process',        href: '#process',        icon: Layers },
+  { label: 'Tech Stack',     href: '#techstack',      icon: Cpu },
+  { label: 'Certifications', href: '#certifications', icon: Award },
+  { label: 'About',          href: '#about',          icon: User },
+  { label: 'Contact',        href: '#contact',        icon: Mail },
+];
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [activeSection, setActiveSection] = useState('#hero');
 
   useEffect(() => {
     document.documentElement.classList.add('dark');
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    const observers = navItems.map(({ href }) => {
+      const el = document.querySelector(href);
+      if (!el) return null;
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(href); },
+        { threshold: 0.3 }
+      );
+      obs.observe(el);
+      return obs;
+    });
+    return () => observers.forEach((o) => o && o.disconnect());
   }, []);
 
-  const navItems = [
-    { label: 'Services', href: '#services' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Tech Stack', href: '#techstack' },
-    { label: 'Certifications', href: '#certifications' }
-  ];
-
-  const scrollToSection = (e, href) => {
+  const scrollTo = (e, href) => {
     e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
-    }
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <header
-      className={`fixed top-4 left-0 right-0 z-50 transition-all duration-700 px-4 sm:px-6`}
-    >
-      <div className={`max-w-7xl mx-auto transition-all duration-700 ${isScrolled ? 'w-full px-2' : 'w-full'}`}>
-        <div className={`flex items-center justify-between px-6 py-4 rounded-full border transition-all duration-700 ${isScrolled 
-          ? 'glass shadow-[0_0_50px_rgba(0,0,0,0.5)] border-white/10 py-3' 
-          : 'bg-transparent border-transparent py-5'}`}
-        >
-          {/* Logo */}
+    <>
+      {/* ─── DESKTOP: Vertical Pill Sidebar ─── */}
+      <motion.aside
+        onMouseEnter={() => setIsExpanded(true)}
+        onMouseLeave={() => setIsExpanded(false)}
+        animate={{ width: isExpanded ? 200 : 62 }}
+        transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+        className="fixed top-1/2 left-5 -translate-y-1/2 z-50 hidden md:block overflow-hidden"
+        style={{
+          background: 'linear-gradient(180deg, rgba(12,7,36,0.92) 0%, rgba(7,4,26,0.95) 100%)',
+          border: '1px solid rgba(168,85,247,0.12)',
+          backdropFilter: 'blur(28px)',
+          borderRadius: 31,
+          boxShadow: '0 25px 70px rgba(0,0,0,0.55), 0 0 1px rgba(168,85,247,0.15)',
+        }}
+      >
+        <div className="flex flex-col py-5 px-[10px] gap-[6px]">
+
+          {/* ── Logo ── */}
           <a
             href="#hero"
-            onClick={(e) => scrollToSection(e, '#hero')}
-            className="text-xl sm:text-2xl font-black text-white hover:opacity-80 transition-opacity tracking-tighter flex items-center gap-1 group whitespace-nowrap"
+            onClick={(e) => scrollTo(e, '#hero')}
+            className="flex items-center gap-3 mb-3 group"
+            style={{ height: 42, paddingLeft: 1 }}
           >
-            <span className="text-primary group-hover:rotate-12 transition-transform inline-block">Syed</span>
-            <span>Hyder Abbas</span>
+            <div
+              className="w-[40px] h-[40px] rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105"
+              style={{
+                background: 'linear-gradient(135deg, #A855F7, #6366F1)',
+                boxShadow: '0 0 20px rgba(168,85,247,0.45)',
+              }}
+            >
+              <span className="text-white font-black text-sm select-none">L</span>
+            </div>
+            <motion.span
+              animate={{ opacity: isExpanded ? 1 : 0, x: isExpanded ? 0 : -6 }}
+              transition={{ duration: 0.2, delay: isExpanded ? 0.08 : 0 }}
+              className="text-white font-black text-sm tracking-tight whitespace-nowrap"
+              style={{ pointerEvents: isExpanded ? 'auto' : 'none' }}
+            >
+              Loops Limited
+            </motion.span>
           </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center bg-white/5 backdrop-blur-md border border-white/5 px-2 py-1 rounded-full">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={(e) => scrollToSection(e, item.href)}
-                className="text-[10px] uppercase tracking-[0.2em] font-black text-gray-400 hover:text-white transition-all px-4 py-2 hover:bg-white/5 rounded-full"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
+          {/* ── Divider ── */}
+          <div style={{ height: 1, background: 'rgba(255,255,255,0.06)', margin: '0 4px 4px 4px' }} />
 
-          <div className="hidden md:flex items-center">
-            <Button
-              onClick={() => window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}`, '_blank')}
-              className="bg-primary text-white hover:bg-primary/90 hover:scale-105 transition-all duration-500 rounded-full px-8 py-6 text-sm font-black uppercase tracking-widest shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+          {/* ── Nav Items ── */}
+          {navItems.map(({ label, href, icon: Icon }) => {
+            const isActive = activeSection === href;
+            return (
+              <a
+                key={href}
+                href={href}
+                onClick={(e) => scrollTo(e, href)}
+                className="flex items-center gap-3 group relative"
+                style={{ height: 42, paddingLeft: 1 }}
+              >
+                {/* Icon circle */}
+                <div
+                  className="w-[40px] h-[40px] rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 relative"
+                  style={{
+                    background: isActive
+                      ? 'rgba(168,85,247,0.18)'
+                      : 'rgba(255,255,255,0.03)',
+                    border: isActive
+                      ? '2px solid rgba(168,85,247,0.55)'
+                      : '2px solid transparent',
+                    boxShadow: isActive
+                      ? '0 0 16px rgba(168,85,247,0.4), inset 0 0 8px rgba(168,85,247,0.15)'
+                      : 'none',
+                  }}
+                >
+                  <Icon
+                    size={17}
+                    strokeWidth={isActive ? 2.2 : 1.6}
+                    className="transition-colors duration-300"
+                    style={{
+                      color: isActive ? '#A855F7' : 'rgba(255,255,255,0.4)',
+                    }}
+                  />
+
+                  {/* Active dot indicator */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeNavDot"
+                      className="absolute -bottom-[2px] left-1/2 -translate-x-1/2"
+                      style={{
+                        width: 5, height: 5,
+                        borderRadius: '50%',
+                        background: '#A855F7',
+                        boxShadow: '0 0 8px #A855F7',
+                      }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                    />
+                  )}
+                </div>
+
+                {/* Label text */}
+                <motion.span
+                  animate={{ opacity: isExpanded ? 1 : 0, x: isExpanded ? 0 : -6 }}
+                  transition={{ duration: 0.18, delay: isExpanded ? 0.06 : 0 }}
+                  className="text-[11px] font-bold uppercase tracking-[0.14em] whitespace-nowrap select-none"
+                  style={{
+                    color: isActive ? '#C084FC' : 'rgba(255,255,255,0.45)',
+                    pointerEvents: isExpanded ? 'auto' : 'none',
+                    textShadow: isActive ? '0 0 12px rgba(168,85,247,0.3)' : 'none',
+                  }}
+                >
+                  {label}
+                </motion.span>
+              </a>
+            );
+          })}
+
+          {/* ── Divider ── */}
+          <div style={{ height: 1, background: 'rgba(255,255,255,0.06)', margin: '4px 4px 4px 4px' }} />
+
+          {/* ── Hire Me ── */}
+          <a
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}`}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-3 group"
+            style={{ height: 42, paddingLeft: 1 }}
+          >
+            <div
+              className="w-[40px] h-[40px] rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300"
+              style={{
+                background: 'linear-gradient(135deg, rgba(168,85,247,0.22), rgba(99,102,241,0.18))',
+                border: '2px solid rgba(168,85,247,0.35)',
+                boxShadow: '0 0 14px rgba(168,85,247,0.25)',
+              }}
+            >
+              <Mail size={15} strokeWidth={2} style={{ color: '#A855F7' }} />
+            </div>
+            <motion.span
+              animate={{ opacity: isExpanded ? 1 : 0, x: isExpanded ? 0 : -6 }}
+              transition={{ duration: 0.18, delay: isExpanded ? 0.06 : 0 }}
+              className="text-[11px] font-black uppercase tracking-[0.14em] whitespace-nowrap select-none"
+              style={{
+                color: '#C084FC',
+                pointerEvents: isExpanded ? 'auto' : 'none',
+                textShadow: '0 0 12px rgba(168,85,247,0.3)',
+              }}
             >
               Hire Me
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="flex items-center md:hidden">
-            <button
-              className={`p-3 rounded-full transition-all duration-300 ${isMobileMenuOpen ? 'bg-primary text-white rotate-90' : 'bg-white/5 text-white'}`}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
-          </div>
+            </motion.span>
+          </a>
         </div>
+      </motion.aside>
 
-        {/* Mobile Menu Overlay */}
-        <div 
-          className={`md:hidden fixed inset-0 z-[-1] bg-[#030014]/60 backdrop-blur-md transition-opacity duration-500 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-          onClick={() => setIsMobileMenuOpen(false)}
-        ></div>
+      {/* ─── MOBILE: Top floating pill ─── */}
+      <MobileNav />
+    </>
+  );
+};
 
-        {/* Mobile Menu Content */}
-        <div
-          className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out absolute left-4 right-4 top-24 ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
-            }`}
+const MobileNav = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const scrollTo = (e, href) => {
+    e.preventDefault();
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    setIsOpen(false);
+  };
+
+  return (
+    <header className="md:hidden fixed top-4 left-4 right-4 z-50">
+      <div
+        className="flex items-center justify-between px-5 py-3 rounded-full"
+        style={{
+          background: 'rgba(7,4,26,0.9)',
+          border: '1px solid rgba(168,85,247,0.12)',
+          backdropFilter: 'blur(24px)',
+          boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+        }}
+      >
+        <a href="#hero" onClick={(e) => scrollTo(e, '#hero')} className="flex items-center gap-2.5">
+          <div
+            className="w-8 h-8 rounded-full flex items-center justify-center"
+            style={{ background: 'linear-gradient(135deg, #A855F7, #6366F1)' }}
+          >
+            <span className="text-white font-black text-xs">L</span>
+          </div>
+          <span className="text-white font-black text-sm tracking-tight">Loops Limited</span>
+        </a>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="w-9 h-9 rounded-full flex items-center justify-center"
+          style={{
+            background: isOpen ? 'rgba(168,85,247,0.22)' : 'rgba(255,255,255,0.05)',
+            border: `1px solid ${isOpen ? 'rgba(168,85,247,0.4)' : 'rgba(255,255,255,0.08)'}`,
+          }}
         >
-          <nav className="flex flex-col space-y-2 p-6 glass border border-white/10 shadow-2xl rounded-[2.5rem]">
-            {navItems.map((item, idx) => (
-              <motion.a
-                initial={{ x: -20, opacity: 0 }}
-                animate={isMobileMenuOpen ? { x: 0, opacity: 1 } : { x: -20, opacity: 0 }}
-                transition={{ delay: idx * 0.1 }}
-                key={item.label}
-                href={item.href}
-                onClick={(e) => scrollToSection(e, item.href)}
-                className="text-gray-400 hover:text-white hover:bg-white/5 px-6 py-5 rounded-2xl transition-all font-black uppercase tracking-[0.2em] text-xs flex items-center justify-between group"
-              >
-                {item.label}
-                <span className="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-              </motion.a>
-            ))}
-            <div className="pt-4 border-t border-white/5 mt-4">
-              <Button
-                onClick={() => window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}`, '_blank')}
-                className="w-full bg-primary text-white hover:bg-primary/90 rounded-2xl py-8 font-black uppercase tracking-widest shadow-2xl transition-transform active:scale-95"
-              >
-                Let's Talk
-              </Button>
-            </div>
-          </nav>
-        </div>
+          {isOpen ? <X size={15} style={{ color: '#A855F7' }} /> : <Menu size={15} style={{ color: 'rgba(255,255,255,0.6)' }} />}
+        </button>
       </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.nav
+            initial={{ opacity: 0, y: -10, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.96 }}
+            transition={{ duration: 0.22 }}
+            className="mt-2 py-3 px-3 rounded-[2rem] flex flex-col gap-1"
+            style={{
+              background: 'rgba(7,4,26,0.92)',
+              border: '1px solid rgba(168,85,247,0.1)',
+              backdropFilter: 'blur(24px)',
+              boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+            }}
+          >
+            {navItems.map(({ label, href, icon: Icon }) => (
+              <a
+                key={href}
+                href={href}
+                onClick={(e) => scrollTo(e, href)}
+                className="flex items-center gap-3 px-4 py-3 rounded-2xl text-gray-400 hover:text-white hover:bg-white/5 transition-all duration-200"
+              >
+                <Icon size={15} strokeWidth={1.8} />
+                <span className="text-[11px] font-bold uppercase tracking-[0.15em]">{label}</span>
+              </a>
+            ))}
+            <div className="pt-2 border-t border-white/5 mt-1">
+              <a
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center gap-2 py-3 rounded-2xl font-black uppercase tracking-widest text-[11px]"
+                style={{
+                  background: 'rgba(168,85,247,0.15)',
+                  border: '1px solid rgba(168,85,247,0.3)',
+                  color: '#A855F7',
+                }}
+              >
+                <Mail size={13} /> Hire Me
+              </a>
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
